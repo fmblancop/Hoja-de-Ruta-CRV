@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#CC0000">
+<title>Hoja de Ruta CRV — Guía de Bolsillo</title>
+<style>
+:root {
+  --red:#CC0000; --red-dark:#990000; --red-light:#FFEBEE;
+  --blue:#1565C0; --blue-light:#E3F2FD;
+  --amber:#E65100; --amber-light:#FFF8E1;
+  --green:#2E7D32; --green-light:#E8F5E9;
+  --purple:#6A1B9A; --purple-light:#F3E5F5;
+  --teal:#00695C; --teal-light:#E0F2F1;
+  --slate:#37474F; --slate-light:#ECEFF1;
+  --gray:#F4F4F4; --border:#E0E0E0; --text:#1A1A1A; --muted:#666;
+  --shadow:0 2px 8px rgba(0,0,0,.12); --radius:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);font-size:15px;line-height:1.6;color:var(--text);background:var(--gray);max-width:680px;margin:0 auto;padding-bottom:90px}
+/* HEADER */
+header{background:var(--red);color:#fff;padding:14px 16px 10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.hdr-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.logo{width:38px;height:38px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;font-weight:900;color:var(--red)}
+.hdr-title{font-size:14px;font-weight:700;line-height:1.2}
+.hdr-sub{font-size:11px;opacity:.85;margin-top:1px}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{background:rgba(255,255,255,.22);color:#fff;border:none;border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer;font-family:var(--font);transition:all .2s;-webkit-tap-highlight-color:transparent}
+.tab.active{background:#fff;color:var(--red)}
+/* PHASE */
+.phase{display:none}.phase.active{display:block}
+.phase-hdr{background:#fff;margin:12px 12px 0;padding:14px 16px;border-radius:var(--radius);border-left:5px solid var(--red);box-shadow:var(--shadow)}
+.phase-name{font-size:16px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
+.phase-obj{font-size:13.5px;color:var(--muted);margin-top:4px;font-style:italic}
+/* STEP CARD */
+.card{background:#fff;margin:10px 12px 0;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.card-hdr{display:flex;align-items:center;gap:10px;padding:14px 14px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;min-height:56px}
+.card-num{width:30px;height:30px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.card-title{flex:1;font-size:14px;font-weight:600;line-height:1.3}
+.card-check{width:24px;height:24px;border:2px solid var(--border);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:all .2s;font-size:14px}
+.card-check.done{background:#4CAF50;border-color:#4CAF50;color:#fff}
+.card-arr{color:var(--muted);font-size:16px;flex-shrink:0;transition:transform .25s}
+.card.open .card-arr{transform:rotate(180deg)}
+.card-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border)}
+.card.open .card-body{display:block}
+/* BLOCKS */
+.blk{margin-top:10px;border-radius:8px;overflow:hidden}
+.blk-hdr{padding:8px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none;-webkit-tap-highlight-color:transparent}
+.blk-hdr span:last-child{font-size:13px;transition:transform .2s}
+.blk-body{padding:10px 12px;font-size:14px}
+.blk-body.hide{display:none}
+.blk.open .blk-hdr span:last-child{transform:rotate(180deg)}
+.blk-accion .blk-hdr{background:var(--blue);color:#fff}
+.blk-accion .blk-body{background:var(--blue-light)}
+.blk-critico .blk-hdr{background:var(--amber);color:#fff}
+.blk-critico .blk-body{background:var(--amber-light)}
+.blk-estrategia .blk-hdr{background:var(--green);color:#fff}
+.blk-estrategia .blk-body{background:var(--green-light)}
+.blk-alerta .blk-hdr{background:#B71C1C;color:#fff}
+.blk-alerta .blk-body{background:var(--red-light)}
+.blk-protocolo .blk-hdr{background:var(--purple);color:#fff}
+.blk-protocolo .blk-body{background:var(--purple-light)}
+.blk-rama .blk-hdr{background:var(--teal);color:#fff}
+.blk-rama .blk-body{background:var(--teal-light)}
+.blk-docs .blk-hdr{background:var(--slate);color:#fff}
+.blk-docs .blk-body{background:var(--slate-light)}
+/* LISTS */
+ul.lst{list-style:none;padding:0}
+ul.lst li{padding:5px 0 5px 20px;position:relative;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px}
+ul.lst li:last-child{border-bottom:none}
+ul.lst li::before{content:"▸";position:absolute;left:4px;color:var(--red)}
+ul.lst.al li::before{content:"⚠";color:#C62828}
+ul.lst.pr li::before{content:"→";color:var(--purple)}
+ul.lst.dk li::before{content:"📄";font-size:12px;top:6px}
+/* CRITERIA */
+.crit-grid{display:grid;gap:6px;margin-top:10px}
+.crit{background:#fff;border-radius:6px;padding:9px 12px;font-size:13.5px;border-left:3px solid var(--red)}
+.crit strong{display:block;color:var(--red-dark);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+/* BRANCHES */
+.branches{display:flex;flex-direction:column;gap:8px}
+.br-btn{background:#fff;border:2px solid var(--border);border-radius:8px;padding:10px 14px;cursor:pointer;text-align:left;font-family:var(--font);font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px;transition:all .2s;-webkit-tap-highlight-color:transparent;width:100%}
+.br-btn:hover,.br-btn:active{border-color:var(--teal);background:var(--teal-light)}
+.br-btn.open{border-color:var(--teal);background:var(--teal-light)}
+.br-ans{display:none;background:#fff;border:2px solid var(--green);border-radius:8px;padding:12px 14px;margin-top:-2px;font-size:13.5px;line-height:1.5}
+.br-ans.show{display:block}
+.br-ans.warn{border-color:var(--amber)}
+.br-ans.danger{border-color:var(--red)}
+/* LINK BUTTON */
+a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;margin-top:10px}
+/* BADGES */
+.badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;vertical-align:middle;margin-left:6px}
+.badge.ob{background:#C62828}
+/* DIVIDER */
+.blk-body p{margin-bottom:6px}
+.blk-body p:last-child{margin-bottom:0}
+/* FOOTER */
+.footer{background:var(--red-dark);color:#fff;text-align:center;padding:10px 16px;font-size:11px;margin:14px 12px 8px;border-radius:var(--radius);opacity:.75}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-top">
+    <div class="logo">✚</div>
+    <div>
+      <div class="hdr-title">Cruz Roja Venezolana</div>
+      <div class="hdr-sub">Hoja de Ruta · Acceso y Legitimación 2026</div>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="showPhase(1,this)">F1: Análisis</button>
+    <button class="tab" onclick="showPhase(2,this)">F2: Aprox.</button>
+    <button class="tab" onclick="showPhase(3,this)">F3: Inmersión</button>
+    <button class="tab" onclick="showPhase(4,this)">F4: Consol.</button>
+  </div>
+</header>
+
+<!-- ═══════════════ FASE 1 ═══════════════ -->
+<section class="phase active" id="p1">
+  <div class="phase-hdr">
+    <div class="phase-name">Fase 1: Pre-Despliegue</div>
+    <div class="phase-obj">Objetivo: Establecer una aproximación segura a la comunidad.</div>
+  </div>
+
+  <div class="card" id="c1-1">
+    <div class="card-hdr" onclick="toggleCard('c1-1')">
+      <div class="card-num">1</div>
+      <div class="card-title">Protocolo de priorización y selección de comunidades</div>
+      <div class="card-check" onclick="toggleCheck(event,'c1-1')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>La filial debe justificar formalmente la selección usando <strong>al menos 3 de estos 6 criterios</strong>:</p>
+          <div class="crit-grid">
+            <div class="crit"><strong>1. Vulnerabilidad documentada</strong>Datos, reportes o historia de eventos confirman vulnerabilidad.</div>
+            <div class="crit"><strong>2. Historia de trabajo previo</strong>La filial o CRV ha tenido presencia anterior.</div>
+            <div class="crit"><strong>3. Capacidad operativa</strong>La filial tiene recursos humanos, técnicos y logísticos mínimos.</div>
+            <div class="crit"><strong>4. Cohesión social</strong>Indicios de organización comunitaria activa e identificable.</div>
+            <div class="crit"><strong>5. Pertinencia con el mandato</strong>El problema está dentro del mandato de la filial.</div>
+            <div class="crit"><strong>6. Desastre reciente</strong>Un evento reciente aumenta disposición a participar.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿La comunidad cumple los criterios?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br1-1a')"><span>✅</span><span>Cumple 3 o más criterios</span></button>
+            <div class="br-ans" id="br1-1a">Selección justificada. Continúa con el Paso 2: Articulación interna.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br1-1b')"><span>⚠️</span><span>Fue seleccionada por donante o sede central</span></button>
+            <div class="br-ans warn" id="br1-1b">Verifica que cumpla al menos 3 criterios. Si no, documenta la discrepancia y comunícala a la sede con evidencia.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br1-1c')"><span>❌</span><span>Solo acceso fácil o redes de contacto</span></button>
+            <div class="br-ans danger" id="br1-1c">Esto introduce sesgo sistemático: se trabaja siempre con las mismas comunidades y se excluyen las más vulnerables. Escala la decisión a la sede.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">La selección basada solo en acceso fácil o contactos introduce sesgos: siempre se trabaja con las mismas comunidades y se excluyen las más vulnerables. Si la comunidad fue seleccionada externamente, verificar que cumple los criterios.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c1-2">
+    <div class="card-hdr" onclick="toggleCard('c1-2')">
+      <div class="card-num">2</div>
+      <div class="card-title">Articulación interna previa al despliegue</div>
+      <div class="card-check" onclick="toggleCheck(event,'c1-2')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Antes de analizar datos secundarios, verificar internamente qué sabe la filial sobre la comunidad. Responde estas preguntas:</p>
+          <ul class="lst" style="margin-top:8px">
+            <li>¿Qué programas han trabajado o trabajan actualmente en esta comunidad?</li>
+            <li>¿Qué diagnósticos o evaluaciones están disponibles?</li>
+            <li>¿Qué vínculos institucionales existen con actores de esa comunidad?</li>
+            <li>¿Hay actividades planificadas por otras áreas que puedan coincidir?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Existen diagnósticos previos de otras áreas?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br1-2a')"><span>✅</span><span>Sí, hay diagnósticos disponibles</span></button>
+            <div class="br-ans" id="br1-2a">Incorpóralos como insumo del análisis de datos secundarios (Paso 3). Evita duplicar esfuerzos.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br1-2b')"><span>❌</span><span>No hay diagnósticos previos</span></button>
+            <div class="br-ans warn" id="br1-2b">Procede directamente al análisis de datos secundarios. Coordina con otras áreas para que sepan que estás iniciando el proceso.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Los diagnósticos realizados por distintas áreas de forma aislada generan información fragmentada o duplicada, y pueden enviar señales contradictorias a la comunidad.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c1-3">
+    <div class="card-hdr" onclick="toggleCard('c1-3')">
+      <div class="card-num">3</div>
+      <div class="card-title">Auditoría de datos secundarios y sesgos</div>
+      <div class="card-check" onclick="toggleCheck(event,'c1-3')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Recopilar información sobre la comunidad: noticias, redes sociales, estadísticas oficiales, mapas y proyectos previos. Al revisar, pregunta:</p>
+          <ul class="lst" style="margin-top:8px">
+            <li>¿La imagen es positiva o negativa? ¿Respetuosa o discriminatoria?</li>
+            <li>¿Refuerza prejuicios, estereotipos o exclusión social?</li>
+            <li>¿Qué información falta o no fue proporcionada por la comunidad? (minorías, VG)</li>
+          </ul>
+          <p style="margin-top:8px">También: investigar si la comunidad participó en proyectos similares y si hubo conflictos o fracasos.</p>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿La comunidad tuvo malas experiencias previas?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br1-3a')"><span>✅</span><span>Sin antecedentes negativos</span></button>
+            <div class="br-ans" id="br1-3a">Procede con confianza. Menciona brevemente en la pre-visita que conoces la historia de la comunidad.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br1-3b')"><span>⚠️</span><span>Hubo proyectos fallidos o conflictos</span></button>
+            <div class="br-ans warn" id="br1-3b">Anticipa estrategias para gestionar la desconfianza. No ignores el historial: abórdalo directamente en la pre-visita con transparencia.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">La imagen que proyectan los medios, el Estado y las redes sobre la comunidad puede estar sesgada. Reconocer esos sesgos es parte del análisis, no solo recolectar los datos.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c1-4">
+    <div class="card-hdr" onclick="toggleCard('c1-4')">
+      <div class="card-num">4</div>
+      <div class="card-title">Evaluación preliminar de cohesión social</div>
+      <div class="card-check" onclick="toggleCheck(event,'c1-4')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Indicadores evaluables de forma remota</span><span>▾</span></div>
+        <div class="blk-body">
+          <ul class="lst">
+            <li><strong>Organizaciones activas:</strong> juntas vecinales, comités de salud, grupos religiosos, deportivos.</li>
+            <li><strong>Acción colectiva:</strong> festividades, jornadas de trabajo, respuestas ante emergencias.</li>
+            <li><strong>Redes de comunicación interna:</strong> grupos de mensajería, radios comunitarias, carteleras.</li>
+            <li><strong>Sin conflictos públicos documentados</strong> entre facciones o sectores.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Qué nivel de cohesión tiene la comunidad?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br1-4a')"><span>✅</span><span>Alta cohesión (3–4 indicadores presentes)</span></button>
+            <div class="br-ans" id="br1-4a">La convocatoria y el trabajo colectivo serán más fluidos. Puedes apoyarte en las estructuras existentes.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br1-4b')"><span>⚠️</span><span>Cohesión media (1–2 indicadores)</span></button>
+            <div class="br-ans warn" id="br1-4b">Ajusta la estrategia de entrada: prioriza el contacto individual antes de las actividades grupales. Identifica a quiénes convocar directamente.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br1-4c')"><span>❌</span><span>Baja cohesión o conflictos documentados</span></button>
+            <div class="br-ans danger" id="br1-4c">La comunidad puede fortalecerse con la intervención, pero requiere mayor cuidado. Diseña una entrada que no refuerce divisiones existentes. Consulta con la sede antes de proceder.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">La cohesión social no es estática. Una comunidad con baja cohesión puede fortalecerla a través de la intervención, pero requiere una estrategia de entrada diferente.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c1-5">
+    <div class="card-hdr" onclick="toggleCard('c1-5')">
+      <div class="card-num">5</div>
+      <div class="card-title">Mapeo de actores clave</div>
+      <div class="card-check" onclick="toggleCheck(event,'c1-5')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Sin visitar aún la comunidad, identificar:</p>
+          <ul class="lst" style="margin-top:8px">
+            <li>Directores de escuelas, personal médico, líderes comunitarios (formales e informales).</li>
+            <li>Autoridades que exijan requisitos: alcaldes, directores locales, fuerzas del orden.</li>
+            <li>Posibles actores que puedan bloquear u obstaculizar el trabajo.</li>
+          </ul>
+          <p style="margin-top:8px"><strong>Importante:</strong> Esta información se mantiene en reserva hasta validarla en la Fase 2.</p>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Los actores identificados son el primer punto de contacto, pero tratar con ellos no equivale necesariamente a recibir el aval de la comunidad. Validar en Fase 2.</div>
+      </div>
+      <div class="blk blk-estrategia">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🛠 Ajuste de seguridad</span><span>▾</span></div>
+        <div class="blk-body hide">Mantener la lista de actores en reserva hasta que se valide en Fase 2 que el contacto con esas autoridades no representa un riesgo para la operación o para la comunidad.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c1-docs">
+    <div class="card-hdr" onclick="toggleCard('c1-docs')">
+      <div class="card-num" style="background:var(--slate)">📄</div>
+      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 1)</div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <ul class="lst dk">
+        <li><strong>00 HOJA G</strong> — Filtrar y evaluar datos secundarios.</li>
+        <li><strong>01 HOJA M</strong> — Modelo de riesgo (Amenaza + Vulnerabilidad).</li>
+        <li><strong>06 HOJA Q</strong> — Gestión de permisos legales y programación.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FASE 2 ═══════════════ -->
+<section class="phase" id="p2">
+  <div class="phase-hdr">
+    <div class="phase-name">Fase 2: Aproximación y Legitimación</div>
+    <div class="phase-obj">Objetivo: Obtener el aval del liderazgo local antes de informar a autoridades administrativas o gubernamentales.</div>
+  </div>
+
+  <div class="card" id="c2-1">
+    <div class="card-hdr" onclick="toggleCard('c2-1')">
+      <div class="card-num">1</div>
+      <div class="card-title">Primer contacto: La "Pre-Visita" de cortesía</div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-1')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Realizar una visita con <strong>equipo técnico reducido</strong>, dirigida exclusivamente al liderazgo identificado en la Fase 1.</p>
+          <p style="margin-top:8px"><strong>Propósito de esta visita:</strong></p>
+          <ul class="lst" style="margin-top:6px">
+            <li>Validar y legitimar formalmente el rol del liderazgo local.</li>
+            <li>Presentar el mandato humanitario de la CRV.</li>
+            <li>Presentar el objetivo del trabajo propuesto.</li>
+            <li>Escuchar antes de proponer.</li>
+          </ul>
+          <p style="margin-top:8px;font-style:italic">Esta visita NO es para hacer diagnóstico. Es para presentarse y escuchar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c2-2">
+    <div class="card-hdr" onclick="toggleCard('c2-2')">
+      <div class="card-num">2</div>
+      <div class="card-title">Gestión de permisos y notificación a autoridades</div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-2')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Una vez obtenido el permiso de los líderes, y <strong>solo en caso de ser necesario</strong>, proceder a tramitar los permisos con autoridades civiles o militares.</p>
+          <p style="margin-top:8px"><strong>Para evaluar si es necesario notificar a autoridades, considera:</strong></p>
+          <ul class="lst" style="margin-top:6px">
+            <li>¿Hay requisitos legales obligatorios en esa jurisdicción?</li>
+            <li>¿La actividad implica trabajo con grupos vulnerables que requiere habilitación?</li>
+            <li>¿La relación con las autoridades podría mejorar la aceptación del proyecto?</li>
+            <li>¿Las autoridades tienen antecedentes de interferir en proyectos similares?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Cuándo y cómo notificar a autoridades?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br2-2a')"><span>✅</span><span>Tengo el aval comunitario previo</span></button>
+            <div class="br-ans" id="br2-2a">Puedes notificar a las autoridades con confianza. El aval de la comunidad protege al personal ante cualquier cuestionamiento civil o militar.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-2b')"><span>⚠️</span><span>La filial ya tiene relación con la alcaldía</span></button>
+            <div class="br-ans warn" id="br2-2b">Las relaciones institucionales previas facilitan el trabajo, pero no reemplazan el aval de la comunidad. Gestiona los permisos, pero no los presentes como la puerta de entrada a la comunidad.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-2c')"><span>❌</span><span>No tengo aún el aval comunitario</span></button>
+            <div class="br-ans danger" id="br2-2c">NO notifiques a autoridades antes de tener el aval de la comunidad. Hacerlo puede comprometer la aceptación del proyecto y asociar a la CRV con el poder político o militar.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Notificar a las autoridades sin el aval previo de la comunidad puede comprometer la aceptación del proyecto y generar la percepción de que la CRV opera como brazo del Estado. El orden correcto es: comunidad primero, autoridades después.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c2-3">
+    <div class="card-hdr" onclick="toggleCard('c2-3')">
+      <div class="card-num">3</div>
+      <div class="card-title">Definición del propósito y reconocimiento del saber práctico local</div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-3')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Explicar que la visita busca <strong>construir una propuesta de trabajo conjunto</strong> basada en el conocimiento y saber práctico local — no imponer una solución predefinida.</p>
+          <ul class="lst" style="margin-top:8px">
+            <li>Usa un lenguaje sencillo, sin términos técnicos.</li>
+            <li>Reconoce públicamente lo que la comunidad ya hace bien.</li>
+            <li>Presenta a la CRV como colaboradora, no como autoridad.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c2-4">
+    <div class="card-hdr" onclick="toggleCard('c2-4')">
+      <div class="card-num">4</div>
+      <div class="card-title">Aplicación obligatoria del Cuestionario de Evaluación Rápida <span class="badge ob">OBLIGATORIO</span></div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-4')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Instrucciones de aplicación</span><span>▾</span></div>
+        <div class="blk-body">
+          <ul class="lst">
+            <li>Debe ser respondido por <strong>líderes comunitarios, personal de salud y/o docentes</strong>, según la sección.</li>
+            <li>Se aplica <strong>un solo cuestionario por comunidad</strong>.</li>
+            <li>Transcribir íntegramente en la plataforma <strong>Kobo</strong>, incluyendo los campos de identificación: estado, municipio, parroquia, comunidad.</li>
+          </ul>
+          <a class="link-btn" href="https://ee.ifrc.org/x/M28RoiY6" target="_blank">📝 Abrir cuestionario</a>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Cuándo aplicar el cuestionario?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br2-4a')"><span>✅</span><span>Durante la pre-visita de cortesía (Paso 1)</span></button>
+            <div class="br-ans" id="br2-4a">Ideal si el liderazgo ya está presente y hay tiempo suficiente. Asegúrate de tener conectividad o aplicarlo en físico para transcribir después.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-4b')"><span>🔄</span><span>En un momento posterior, antes del trabajo en terreno</span></button>
+            <div class="br-ans warn" id="br2-4b">También válido, siempre que sea antes de planificar las actividades. El cuestionario orienta qué hacer, no puede aplicarse después de haber iniciado.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">La aplicación del cuestionario <strong>no es opcional</strong>. Su resultado orienta la planificación de las actividades de la filial. Sin esta información, las decisiones operativas carecen de fundamento técnico.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c2-5">
+    <div class="card-hdr" onclick="toggleCard('c2-5')">
+      <div class="card-num">5</div>
+      <div class="card-title">Planificación de la convocatoria comunitaria</div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-5')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">Una vez establecido el vínculo con el liderazgo y definido el propósito, planificar juntos cómo convocar a la comunidad. El riesgo: delegar todo en el líder puede reducir la diversidad de participantes.</div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 Estrategias de convocatoria — ¿cuál usar?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br2-5a')"><span>👥</span><span>Integración programática</span></button>
+            <div class="br-ans" id="br2-5a">Coordinar con otras áreas o programas de la filial que ya tengan presencia en la comunidad para ampliar la convocatoria.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-5b')"><span>🔗</span><span>Redes secundarias</span></button>
+            <div class="br-ans" id="br2-5b">Identificar, junto al liderazgo, personas con capacidad de convocatoria en sectores específicos que el líder no cubre normalmente.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-5c')"><span>📍</span><span>Momentos y espacios de alta concurrencia</span></button>
+            <div class="br-ans" id="br2-5c">Planificar actividades en horarios y lugares donde la comunidad ya se congrega naturalmente (mercados, salidas de escuela, misas, asambleas).</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-5d')"><span>🎯</span><span>Atractivo del proyecto</span></button>
+            <div class="br-ans" id="br2-5d">Asegurar que la primera actividad ofrezca un valor tangible e inmediato para los participantes. Esto motiva la asistencia y la recomendación.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Si la participación cae por debajo del umbral mínimo acordado en dos o más actividades consecutivas, revisar la estrategia de convocatoria antes de continuar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c2-docs">
+    <div class="card-hdr" onclick="toggleCard('c2-docs')">
+      <div class="card-num" style="background:var(--slate)">📄</div>
+      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 2)</div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <ul class="lst dk">
+        <li><strong>04 HOJA O</strong> — Cómo definir y comunicar el propósito del análisis.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FASE 3 ═══════════════ -->
+<section class="phase" id="p3">
+  <div class="phase-hdr">
+    <div class="phase-name">Fase 3: Inmersión y Profundización</div>
+    <div class="phase-obj">Objetivo: Levantar información en campo para identificar dinámicas comunitarias.</div>
+  </div>
+
+  <div class="card" id="c3-1">
+    <div class="card-hdr" onclick="toggleCard('c3-1')">
+      <div class="card-num">1</div>
+      <div class="card-title">Estrategia de muestreo inclusivo y verificación de representatividad</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-1')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <ul class="lst">
+            <li>Identificar informantes clave que sirvan de "traductores" de la cultura local.</li>
+            <li>Identificar grupos o personas que normalmente NO están en las reuniones.</li>
+            <li>Asegurar que los informantes representen todos los sectores de la comunidad.</li>
+          </ul>
+          <p style="margin-top:10px"><strong>Auditoría de representatividad — verifica:</strong></p>
+          <ul class="lst" style="margin-top:6px">
+            <li><strong>Edad:</strong> ¿Hay adultos mayores, jóvenes y población productiva?</li>
+            <li><strong>Género:</strong> ¿La participación de mujeres y hombres es equilibrada?</li>
+            <li><strong>Ubicación:</strong> ¿Participan personas de distintos sectores o barrios?</li>
+            <li><strong>Actividad económica:</strong> ¿Hay comerciantes, agricultores, amas de casa?</li>
+            <li><strong>Vulnerabilidad:</strong> ¿Hay personas con discapacidad, migrantes, minorías?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Falta algún grupo en la muestra?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br3-1a')"><span>✅</span><span>Todos los grupos están representados</span></button>
+            <div class="br-ans" id="br3-1a">Buena representatividad. Continúa con las actividades planificadas.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br3-1b')"><span>⚠️</span><span>Falta algún grupo (mujeres, jóvenes, migrantes…)</span></button>
+            <div class="br-ans warn" id="br3-1b">Activa las estrategias de convocatoria alternativas de Fase 2 (Paso 5). Los informantes clave no siempre son líderes formales; busca personas con acceso a los grupos ausentes.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">La convocatoria gestionada por el liderazgo tiende a reproducir sus redes sociales, no la diversidad de la comunidad. Un diagnóstico sesgado lleva a intervenciones que no alcanzan a los más vulnerables.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-2">
+    <div class="card-hdr" onclick="toggleCard('c3-2')">
+      <div class="card-num">2</div>
+      <div class="card-title">Mapeo de gobernanza, relaciones económicas y poder real</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-2')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <ul class="lst">
+            <li>Registrar cómo se toman las decisiones: ¿por consenso, asamblea o jerarquía?</li>
+            <li>Identificar qué redes de intercambio económico existen.</li>
+            <li>Reconocer los flujos de poder y la autoridad moral dentro de la comunidad.</li>
+          </ul>
+          <p style="margin-top:8px"><strong>Herramienta:</strong> Sociograma de Redes de Influencia (14 HOJA Y1).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-3">
+    <div class="card-hdr" onclick="toggleCard('c3-3')">
+      <div class="card-num">3</div>
+      <div class="card-title">Identificación y gestión de actores de poder informal</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-3')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">En muchas comunidades existen actores con poder real que no tienen cargo formal pero influyen en las decisiones. Observa su presencia sin confrontarlos directamente.</div>
+      </div>
+      <div class="blk blk-alerta">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🚨 Señales de alerta</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <ul class="lst al">
+            <li>Personas sin cargo formal a quienes el liderazgo pide aprobación antes de decidir.</li>
+            <li>Referencias veladas a "permisos" o "acuerdos" que deben gestionarse fuera de los canales formales.</li>
+            <li>Cambios repentinos de actitud del liderazgo sin explicación aparente.</li>
+            <li>Restricciones espontáneas sobre ciertos espacios, horarios o temas de conversación.</li>
+            <li>Personas no identificadas que observan las actividades sin participar.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-protocolo">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔒 Protocolo de neutralidad</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <ul class="lst pr">
+            <li>No tomar partido ni alinearse con ningún actor de poder que tenga disputas internas.</li>
+            <li>Evitar que el proyecto sea asociado con una facción política, religiosa o económica.</li>
+            <li>Si un actor informal condiciona el acceso, documentar internamente y escalar a la sede.</li>
+            <li>Todo acuerdo con autoridades no estatales debe ser abierto y comunicado a las autoridades legítimas de la comunidad.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Qué hacer si hay actores de poder informal?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br3-3a')"><span>👁</span><span>Observo su presencia, sin señales de riesgo</span></button>
+            <div class="br-ans" id="br3-3a">Postura de observación activa. Documenta sin confrontar. Mantén neutralidad visible y continúa las actividades.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br3-3b')"><span>⚠️</span><span>Condiciona el acceso o la continuidad del proyecto</span></button>
+            <div class="br-ans warn" id="br3-3b">Documenta el hecho internamente. No cedas ante condicionamientos informales sin escalar primero a la sede. Evita compromisos que comprometan la imparcialidad de la CRV.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br3-3c')"><span>🚨</span><span>Representa un riesgo para el equipo o la comunidad</span></button>
+            <div class="br-ans danger" id="br3-3c">Activar el protocolo de seguridad de la organización de forma inmediata. No continuar sin validación de la sede.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-4">
+    <div class="card-hdr" onclick="toggleCard('c3-4')">
+      <div class="card-num">4</div>
+      <div class="card-title">Acercamiento al problema, amenazas y análisis de contexto</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-4')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <ul class="lst">
+            <li>Antes de presentar cualquier propuesta, documentar cómo la comunidad resuelve actualmente el problema que se busca atender.</li>
+            <li>Identificar los eventos naturales, económicos y socioculturales que se repiten en el tiempo.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-estrategia">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🛠 Estrategia de campo</span><span>▾</span></div>
+        <div class="blk-body hide">Ser conscientes de la historia y los ciclos estacionales de la comunidad. Usa la memoria de la comunidad para reconstruir patrones: "¿Qué pasa aquí en época de lluvias? ¿Y en diciembre?"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-5">
+    <div class="card-hdr" onclick="toggleCard('c3-5')">
+      <div class="card-num">5</div>
+      <div class="card-title">Herramientas de protección</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-5')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">Para temas sensibles (migración, violencia de género, violencia armada): usar <strong>entrevistas individuales cara a cara</strong>, en privado, con personas de confianza.</div>
+      </div>
+      <div class="blk blk-alerta">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🚨 Restricción importante</span><span>▾</span></div>
+        <div class="blk-body hide"><strong>PROHIBIDO</strong> usar grupos focales para temas de migración, violencia de género o violencia armada. El riesgo de revictimización y exposición es muy alto.</div>
+      </div>
+      <div class="blk blk-estrategia">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🛠 Estrategia de campo</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <ul class="lst">
+            <li>Asegurar la presencia de <strong>mujeres en el equipo</strong> que visita la comunidad.</li>
+            <li>Usar el mapeo de vulnerabilidades para identificar dónde viven personas que requieren servicios de protección.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-6">
+    <div class="card-hdr" onclick="toggleCard('c3-6')">
+      <div class="card-num">6</div>
+      <div class="card-title">Gestión de la presencia del liderazgo en espacios grupales</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-6')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">Evaluar en cada actividad grupal si la presencia de líderes comunitarios o autoridades limita la participación libre de los demás.</div>
+      </div>
+      <div class="blk blk-alerta">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🚨 Señales de alerta</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <ul class="lst al">
+            <li>Los participantes responden brevemente o remiten sus respuestas al líder presente.</li>
+            <li>Solo hablan las mismas personas, generalmente el líder o su entorno.</li>
+            <li>El grupo muestra incomodidad o evita ciertos temas cuando el líder está presente.</li>
+            <li>El líder responde en nombre del grupo sin que se lo soliciten.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Cuándo incluir o separar al liderazgo?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br3-6a')"><span>✅</span><span>Presentación del proyecto o diagnóstico general</span></button>
+            <div class="br-ans" id="br3-6a">La presencia del liderazgo es válida y recomendable. Facilita la legitimación del proceso.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br3-6b')"><span>⚠️</span><span>Diagnóstico de problemas internos o conflictos</span></button>
+            <div class="br-ans warn" id="br3-6b">Crear espacios sin la presencia del liderazgo, o con el liderazgo en rol de observador. Esto permite expresión libre.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br3-6c')"><span>🎓</span><span>Actividades de formación</span></button>
+            <div class="br-ans" id="br3-6c">Diseñar dinámicas que permitan expresión individual, no solo validación colectiva mediada por el líder.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">El silencio en presencia del liderazgo no siempre es visible. A veces el grupo parece participativo, pero los temas sensibles nunca emergen. El análisis de lo que NO se dice es tan importante como lo que sí se dice.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-7">
+    <div class="card-hdr" onclick="toggleCard('c3-7')">
+      <div class="card-num">7</div>
+      <div class="card-title">Apropiación y adaptación local de herramientas técnicas</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-7')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Criterios de apropiación</span><span>▾</span></div>
+        <div class="blk-body">
+          <div class="crit-grid">
+            <div class="crit"><strong>Comprensión funcional</strong>Los participantes explican con sus propias palabras para qué sirve y cómo funciona.</div>
+            <div class="crit"><strong>Operación autónoma</strong>Al menos 2 personas en la comunidad pueden operarla sin asistencia externa.</div>
+            <div class="crit"><strong>Mantenimiento local</strong>La comunidad puede hacer el mantenimiento básico con sus propios recursos.</div>
+            <div class="crit"><strong>Pertinencia percibida</strong>La comunidad considera que la herramienta responde a un problema real y prioritario para ella.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-protocolo">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔒 Protocolo de co-adaptación</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <ul class="lst pr">
+            <li>Presentar cualquier herramienta en términos del problema concreto que resuelve, con ejemplos locales.</li>
+            <li>Involucrar a miembros de la comunidad en definir cómo se usará: qué ajustes requiere, quién la opera, cómo se mantiene.</li>
+            <li>Realizar al menos una práctica supervisada y una práctica autónoma antes de dar la herramienta por transferida.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Una herramienta técnica instalada pero no apropiada es un indicador de fracaso operativo real. El riesgo mayor es que la comunidad la abandone o la use mal después de que la filial se retire.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-8">
+    <div class="card-hdr" onclick="toggleCard('c3-8')">
+      <div class="card-num">8</div>
+      <div class="card-title">Validación cultural</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-8')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <ul class="lst">
+            <li>Entrevistar a personas de distintos sectores y con diferentes funciones económicas o profesionales.</li>
+            <li>Anticipar posibles conflictos culturales o simbólicos que puedan bloquear el proyecto.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-estrategia">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🛠 Estrategia de campo</span><span>▾</span></div>
+        <div class="blk-body hide">Anticipar conflictos con el objetivo de evitar que el proyecto sea bloqueado por un factor cultural no previsto. Pregunta directamente: "¿Hay algo que podría generar resistencia o rechazo en la comunidad?"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-9">
+    <div class="card-hdr" onclick="toggleCard('c3-9')">
+      <div class="card-num">9</div>
+      <div class="card-title">Protocolo de pausa o salida responsable</div>
+      <div class="card-check" onclick="toggleCheck(event,'c3-9')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 ¿Cuándo evaluar si pausar o salir?</span><span>▾</span></div>
+        <div class="blk-body">
+          <ul class="lst al">
+            <li>La participación cae bajo el umbral mínimo en 2 o más actividades consecutivas.</li>
+            <li>El liderazgo retira su aval o adopta postura de obstrucción activa.</li>
+            <li>Emergen condiciones de seguridad que comprometen al equipo o a los participantes.</li>
+            <li>La comunidad manifiesta de forma explícita desinterés o rechazo.</li>
+            <li>Conflictos internos hacen inviable un trabajo neutral de la filial.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Cuál es la naturaleza del problema?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br3-9a')"><span>⏸</span><span>Problema coyuntural (político, estacional, temporal)</span></button>
+            <div class="br-ans" id="br3-9a"><strong>Pausa temporal:</strong> Suspender las actividades por un período definido. Mantener la comunicación con el liderazgo. Retomar cuando el contexto mejore.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br3-9b')"><span>🔄</span><span>Problema de pertinencia del proyecto</span></button>
+            <div class="br-ans warn" id="br3-9b"><strong>Redirección:</strong> Explorar si la intervención puede reorientarse dentro del mandato de la filial para responder mejor a lo que la comunidad necesita realmente.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br3-9c')"><span>🚪</span><span>Las condiciones no permiten continuar</span></button>
+            <div class="br-ans danger" id="br3-9c"><strong>Cierre responsable:</strong> Informar al liderazgo comunitario las razones, agradecer la colaboración, documentar los hallazgos y dejar abierta la posibilidad de retomar en el futuro. NO salir de forma abrupta.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Salir de una comunidad sin un protocolo de cierre puede dañar la reputación de la CRV y dificultar el acceso futuro. Un cierre responsable también es una forma de legitimación.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c3-docs">
+    <div class="card-hdr" onclick="toggleCard('c3-docs')">
+      <div class="card-num" style="background:var(--slate)">📄</div>
+      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 3)</div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <ul class="lst dk">
+        <li><strong>11 HOJA V</strong> — Estrategias de muestreo para asegurar representatividad.</li>
+        <li><strong>16 HOJA AA</strong> — Protocolos para migrantes y violencia de género.</li>
+        <li><strong>10 HOJA U</strong> — Mapeo físico de zonas de exclusión/riesgo.</li>
+        <li><strong>08 HOJA S & 09 HOJA T</strong> — Selección de herramientas para amenazas.</li>
+        <li><strong>15 HOJA Z</strong> — Crear indicadores medibles con la comunidad.</li>
+        <li><strong>02 HOJA N</strong> — Gestión del conocimiento e identificación de informantes.</li>
+        <li><strong>14 HOJA Y1</strong> — Sociograma de Redes de Influencia.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FASE 4 ═══════════════ -->
+<section class="phase" id="p4">
+  <div class="phase-hdr">
+    <div class="phase-name">Fase 4: Consolidación</div>
+    <div class="phase-obj">Objetivo: Sistematizar los hallazgos para la toma de decisiones presupuestarias, técnicas y de seguridad.</div>
+  </div>
+
+  <div class="card" id="c4-1">
+    <div class="card-hdr" onclick="toggleCard('c4-1')">
+      <div class="card-num">1</div>
+      <div class="card-title">Síntesis y triangulación de inteligencia</div>
+      <div class="card-check" onclick="toggleCheck(event,'c4-1')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Antes del informe final, triangular la información con distintas fuentes. El informe debe incluir:</p>
+          <ul class="lst" style="margin-top:8px">
+            <li>Conclusiones que reflejan las <strong>prioridades de la comunidad</strong>, no los deseos de la CRV o el donante.</li>
+            <li>Viabilidad logística: horarios seguros y rutas de acceso basadas en la vulnerabilidad mapeada.</li>
+            <li>Clasificación de problemas según el mandato y capacidad de acción de la CRV.</li>
+            <li>Especificación de qué voluntarios o especialistas se requieren.</li>
+          </ul>
+          <p style="margin-top:8px"><strong>Lenguaje:</strong> Usar los criterios de la Hoja DD para transformar los hallazgos en afirmaciones positivas y acciones concretas.</p>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Si los "interesados" no ven reflejada su voz en el informe, se incrementa el riesgo de expulsión o desinterés por la iniciativa. Las conclusiones deben poder ser leídas por la comunidad.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c4-2">
+    <div class="card-hdr" onclick="toggleCard('c4-2')">
+      <div class="card-num">2</div>
+      <div class="card-title">Gestión de la tensión entre mandato del donante y realidad comunitaria</div>
+      <div class="card-check" onclick="toggleCheck(event,'c4-2')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Marco para documentar la discrepancia</span><span>▾</span></div>
+        <div class="blk-body">
+          <p>Cuando el proyecto exige "X" pero la comunidad requiere "Y":</p>
+          <ul class="lst" style="margin-top:8px">
+            <li>Descripción de "X" según el marco lógico del proyecto.</li>
+            <li>Descripción de "Y" según los hallazgos, con evidencia de al menos 3 fuentes.</li>
+            <li>Impacto de implementar "X" sin atender "Y": qué riesgos genera para la comunidad.</li>
+            <li>Propuesta de ajuste: cómo modificar la actividad para atender ambas necesidades.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿El donante es flexible?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br4-2a')"><span>✅</span><span>Donante abierto a ajustes</span></button>
+            <div class="br-ans" id="br4-2a">
+              <ul class="lst pr" style="margin-top:0">
+                <li>Presentar hallazgos como evidencia técnica, no como desviación del plan.</li>
+                <li>Proponer modificaciones acotadas: cambiar la forma, no los objetivos generales.</li>
+              </ul>
+            </div>
+            <button class="br-btn" onclick="toggleBranch(this,'br4-2b')"><span>⚠️</span><span>Donante inflexible</span></button>
+            <div class="br-ans warn" id="br4-2b">Registrar en el informe interno la discrepancia y las acciones tomadas para mitigar su impacto. Documentar los recursos alternativos gestionados fuera del presupuesto del proyecto.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Los proyectos de GRD son sui géneris: no es posible anticipar con precisión lo que se encontrará en terreno. La discrepancia donante-realidad no es una falla — es información valiosa que debe gestionarse técnicamente.</div>
+      </div>
+      <div class="blk blk-estrategia">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🛠 Estrategia de campo</span><span>▾</span></div>
+        <div class="blk-body hide">Mantener un registro interno —separado del reporte al donante— donde se documente qué decisiones de campo se tomaron, por qué, y con qué resultado. Este registro protege a la filial y sirve de aprendizaje institucional.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c4-docs">
+    <div class="card-hdr" onclick="toggleCard('c4-docs')">
+      <div class="card-num" style="background:var(--slate)">📄</div>
+      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 4)</div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <ul class="lst dk">
+        <li><strong>17 HOJA BB</strong> — Metodología técnica de validación de datos (Triangulación).</li>
+        <li><strong>19 HOJA DD</strong> — Técnica de reducción de datos y formulación de conclusiones objetivas.</li>
+        <li><strong>13 HOJA X</strong> — Producir y presentar datos de forma visual (estrella de la resiliencia).</li>
+        <li><strong>12 HOJA W</strong> — Clasificación interna de prioridades según urgencia e impacto.</li>
+        <li><strong>18 HOJA CC</strong> — Estructura técnica de planificación (ver Hoja GG en el archivo CC).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="footer">Cruz Roja Venezolana · PMER · Hoja de Ruta de Bolsillo 2026 · Para uso en terreno</div>
+
+<script>
+function showPhase(n, btn) {
+  document.querySelectorAll('.phase').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('p' + n).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function toggleCard(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
+function toggleCheck(e, id) {
+  e.stopPropagation();
+  const check = document.querySelector('#' + id + ' .card-check');
+  check.classList.toggle('done');
+  check.textContent = check.classList.contains('done') ? '✓' : '';
+}
+
+function toggleBlk(hdr) {
+  const blk = hdr.closest('.blk');
+  blk.classList.toggle('open');
+  const body = hdr.nextElementSibling;
+  if (body) body.classList.toggle('hide');
+}
+
+function toggleBranch(btn, answerId) {
+  const ans = document.getElementById(answerId);
+  const isOpen = ans.classList.contains('show');
+  // close siblings
+  const container = btn.closest('.branches');
+  container.querySelectorAll('.br-ans').forEach(a => a.classList.remove('show'));
+  container.querySelectorAll('.br-btn').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    ans.classList.add('show');
+    btn.classList.add('open');
+  }
+}
+
+// Auto-open first block of every card when card opens
+document.querySelectorAll('.card-hdr').forEach(hdr => {
+  hdr.addEventListener('click', function() {
+    const card = this.closest('.card');
+    // Already toggled; if now open, ensure first blk-accion is open
+    setTimeout(() => {
+      if (card.classList.contains('open')) {
+        const firstBlk = card.querySelector('.blk-accion');
+        if (firstBlk && !firstBlk.classList.contains('open')) {
+          firstBlk.classList.add('open');
+          const body = firstBlk.querySelector('.blk-body');
+          if (body) body.classList.remove('hide');
+        }
+      }
+    }, 10);
+  });
+});
+</script>
+</body>
+</html>
