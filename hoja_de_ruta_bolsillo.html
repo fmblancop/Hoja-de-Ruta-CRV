@@ -3,45 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#CC0000">
+<meta name="theme-color" content="#1C4269">
 <title>Hoja de Ruta CRV — Guía de Bolsillo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --red:#CC0000; --red-dark:#990000; --red-light:#FFEBEE;
-  --blue:#1565C0; --blue-light:#E3F2FD;
+  --red:#F41114; --red-dark:#8B0000; --red-light:#FFF0F0;
+  --corp:#1C4269; --corp-light:#EBF3FA;
+  --sec:#2D5987; --sec-light:#EDF2F8;
+  --pale:#6F98BC; --pale-light:#F0F5FA;
+  --green:#4CAF50; --green-light:#E8F5E9;
   --amber:#E65100; --amber-light:#FFF8E1;
-  --green:#2E7D32; --green-light:#E8F5E9;
-  --purple:#6A1B9A; --purple-light:#F3E5F5;
-  --teal:#00695C; --teal-light:#E0F2F1;
-  --slate:#37474F; --slate-light:#ECEFF1;
-  --gray:#F4F4F4; --border:#E0E0E0; --text:#1A1A1A; --muted:#666;
+  --gray:#F2F2F2; --border:#E8E8E8; --text:#1A1A1A; --muted:#666;
   --shadow:0 2px 8px rgba(0,0,0,.12); --radius:12px;
-  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font:'Open Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);font-size:15px;line-height:1.6;color:var(--text);background:var(--gray);max-width:680px;margin:0 auto;padding-bottom:90px}
+body{font-family:var(--font);font-size:15px;line-height:1.6;color:var(--text);background:var(--gray);max-width:680px;margin:0 auto;padding-bottom:90px;font-weight:400}
 /* HEADER */
-header{background:var(--red);color:#fff;padding:14px 16px 10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+header{background:var(--corp);color:#fff;padding:14px 16px 10px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.25)}
 .hdr-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.logo{width:38px;height:38px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;font-weight:900;color:var(--red)}
+.logo{width:44px;height:44px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .hdr-title{font-size:14px;font-weight:700;line-height:1.2}
-.hdr-sub{font-size:11px;opacity:.85;margin-top:1px}
+.hdr-sub{font-size:11px;opacity:.85;margin-top:1px;font-weight:400}
 .tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .tabs::-webkit-scrollbar{display:none}
 .tab{background:rgba(255,255,255,.22);color:#fff;border:none;border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer;font-family:var(--font);transition:all .2s;-webkit-tap-highlight-color:transparent}
-.tab.active{background:#fff;color:var(--red)}
+.tab.active{background:#fff;color:var(--corp)}
 /* PHASE */
 .phase{display:none}.phase.active{display:block}
-.phase-hdr{background:#fff;margin:12px 12px 0;padding:14px 16px;border-radius:var(--radius);border-left:5px solid var(--red);box-shadow:var(--shadow)}
-.phase-name{font-size:16px;font-weight:800;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
-.phase-obj{font-size:13.5px;color:var(--muted);margin-top:4px;font-style:italic}
+.phase-hdr{background:#fff;margin:12px 12px 0;padding:14px 16px;border-radius:var(--radius);border-left:5px solid var(--corp);box-shadow:var(--shadow)}
+.phase-name{font-size:16px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
+.phase-obj{font-size:13.5px;color:var(--muted);margin-top:4px;font-style:italic;font-weight:400}
 /* STEP CARD */
 .card{background:#fff;margin:10px 12px 0;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .card-hdr{display:flex;align-items:center;gap:10px;padding:14px 14px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;min-height:56px}
-.card-num{width:30px;height:30px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.card-num{width:30px;height:30px;background:var(--corp);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
 .card-title{flex:1;font-size:14px;font-weight:600;line-height:1.3}
 .card-check{width:24px;height:24px;border:2px solid var(--border);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;transition:all .2s;font-size:14px}
-.card-check.done{background:#4CAF50;border-color:#4CAF50;color:#fff}
+.card-check.done{background:var(--green);border-color:var(--green);color:#fff}
 .card-arr{color:var(--muted);font-size:16px;flex-shrink:0;transition:transform .25s}
 .card.open .card-arr{transform:rotate(180deg)}
 .card-body{display:none;padding:0 14px 14px;border-top:1px solid var(--border)}
@@ -53,57 +55,81 @@ header{background:var(--red);color:#fff;padding:14px 16px 10px;position:sticky;t
 .blk-body{padding:10px 12px;font-size:14px}
 .blk-body.hide{display:none}
 .blk.open .blk-hdr span:last-child{transform:rotate(180deg)}
-.blk-accion .blk-hdr{background:var(--blue);color:#fff}
-.blk-accion .blk-body{background:var(--blue-light)}
-.blk-critico .blk-hdr{background:var(--amber);color:#fff}
-.blk-critico .blk-body{background:var(--amber-light)}
-.blk-estrategia .blk-hdr{background:var(--green);color:#fff}
-.blk-estrategia .blk-body{background:var(--green-light)}
-.blk-alerta .blk-hdr{background:#B71C1C;color:#fff}
-.blk-alerta .blk-body{background:var(--red-light)}
-.blk-protocolo .blk-hdr{background:var(--purple);color:#fff}
-.blk-protocolo .blk-body{background:var(--purple-light)}
-.blk-rama .blk-hdr{background:var(--teal);color:#fff}
-.blk-rama .blk-body{background:var(--teal-light)}
-.blk-docs .blk-hdr{background:var(--slate);color:#fff}
-.blk-docs .blk-body{background:var(--slate-light)}
+.blk-accion .blk-hdr{background:var(--corp);color:#fff}
+.blk-accion .blk-body{background:var(--corp-light)}
+.blk-critico .blk-hdr{background:var(--red);color:#fff}
+.blk-critico .blk-body{background:var(--red-light)}
+.blk-estrategia .blk-hdr{background:var(--sec);color:#fff}
+.blk-estrategia .blk-body{background:var(--sec-light)}
+.blk-alerta .blk-hdr{background:var(--red-dark);color:#fff}
+.blk-alerta .blk-body{background:#FFF5F5}
+.blk-protocolo .blk-hdr{background:var(--pale);color:#fff}
+.blk-protocolo .blk-body{background:var(--pale-light)}
+.blk-rama .blk-hdr{background:var(--corp);color:#fff}
+.blk-rama .blk-body{background:#E8F4FB}
 /* LISTS */
 ul.lst{list-style:none;padding:0}
-ul.lst li{padding:5px 0 5px 20px;position:relative;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px}
+ul.lst li{padding:5px 0 5px 20px;position:relative;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px;font-weight:400}
 ul.lst li:last-child{border-bottom:none}
-ul.lst li::before{content:"▸";position:absolute;left:4px;color:var(--red)}
+ul.lst li::before{content:"▸";position:absolute;left:4px;color:var(--corp)}
 ul.lst.al li::before{content:"⚠";color:#C62828}
-ul.lst.pr li::before{content:"→";color:var(--purple)}
-ul.lst.dk li::before{content:"📄";font-size:12px;top:6px}
+ul.lst.pr li::before{content:"→";color:var(--pale)}
 /* CRITERIA */
 .crit-grid{display:grid;gap:6px;margin-top:10px}
-.crit{background:#fff;border-radius:6px;padding:9px 12px;font-size:13.5px;border-left:3px solid var(--red)}
-.crit strong{display:block;color:var(--red-dark);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.crit{background:#fff;border-radius:6px;padding:9px 12px;font-size:13.5px;border-left:3px solid var(--corp)}
+.crit strong{display:block;color:var(--corp);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
 /* BRANCHES */
 .branches{display:flex;flex-direction:column;gap:8px}
-.br-btn{background:#fff;border:2px solid var(--border);border-radius:8px;padding:10px 14px;cursor:pointer;text-align:left;font-family:var(--font);font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px;transition:all .2s;-webkit-tap-highlight-color:transparent;width:100%}
-.br-btn:hover,.br-btn:active{border-color:var(--teal);background:var(--teal-light)}
-.br-btn.open{border-color:var(--teal);background:var(--teal-light)}
-.br-ans{display:none;background:#fff;border:2px solid var(--green);border-radius:8px;padding:12px 14px;margin-top:-2px;font-size:13.5px;line-height:1.5}
+.br-btn{background:#fff;border:2px solid var(--corp);border-radius:8px;padding:10px 14px;cursor:pointer;text-align:left;font-family:var(--font);font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px;transition:all .2s;-webkit-tap-highlight-color:transparent;width:100%}
+.br-btn:hover,.br-btn:active{border-color:var(--corp);background:var(--corp-light)}
+.br-btn.open{border-color:var(--corp);background:var(--corp-light)}
+.br-ans{display:none;background:#fff;border:2px solid var(--green);border-radius:8px;padding:12px 14px;margin-top:-2px;font-size:13.5px;line-height:1.5;font-weight:400}
 .br-ans.show{display:block}
 .br-ans.warn{border-color:var(--amber)}
 .br-ans.danger{border-color:var(--red)}
 /* LINK BUTTON */
-a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;margin-top:10px}
+a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp);color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;margin-top:10px}
 /* BADGES */
 .badge{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:12px;text-transform:uppercase;letter-spacing:.5px;vertical-align:middle;margin-left:6px}
-.badge.ob{background:#C62828}
 /* DIVIDER */
 .blk-body p{margin-bottom:6px}
 .blk-body p:last-child{margin-bottom:0}
 /* FOOTER */
-.footer{background:var(--red-dark);color:#fff;text-align:center;padding:10px 16px;font-size:11px;margin:14px 12px 8px;border-radius:var(--radius);opacity:.75}
+.footer{background:var(--corp);color:#fff;text-align:center;padding:10px 16px;font-size:11px;margin:14px 12px 8px;border-radius:var(--radius);opacity:.85;font-weight:400}
+/* FAQ ACCORDION */
+.faq-intro{background:#fff;margin:12px 12px 0;padding:13px 16px;border-radius:var(--radius);box-shadow:var(--shadow);font-size:13.5px;color:var(--muted);font-style:italic;border-left:4px solid var(--pale)}
+.faq-card{background:#fff;margin:10px 12px 0;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.faq-hdr{display:flex;align-items:center;gap:10px;padding:13px 14px;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;min-height:52px;background:var(--corp);color:#fff}
+.faq-num{width:28px;height:28px;border:2px solid rgba(255,255,255,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0;color:#fff}
+.faq-q{flex:1;font-size:13.5px;font-weight:600;line-height:1.3;color:#fff}
+.faq-arr{color:rgba(255,255,255,.8);font-size:15px;flex-shrink:0;transition:transform .25s}
+.faq-card.open .faq-arr{transform:rotate(180deg)}
+.faq-body{display:none;padding:13px 14px;background:var(--corp-light);font-size:14px;line-height:1.65;font-weight:400;border-top:1px solid rgba(28,66,105,.15)}
+.faq-card.open .faq-body{display:block}
 </style>
 </head>
 <body>
 <header>
   <div class="hdr-top">
-    <div class="logo">✚</div>
+    <div class="logo">
+      <svg width="44" height="44" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Cruz Roja Venezolana">
+        <circle cx="60" cy="60" r="59" fill="white"/>
+        <circle cx="60" cy="60" r="57" fill="none" stroke="#F41114" stroke-width="2.5"/>
+        <defs>
+          <path id="tc" d="M 10,60 A 50,50 0 0,1 110,60"/>
+          <path id="bc" d="M 110,60 A 50,50 0 0,1 10,60"/>
+        </defs>
+        <text font-size="6.8" fill="#F41114" font-family="Arial,sans-serif" font-weight="700" letter-spacing="0.6">
+          <textPath href="#tc" startOffset="3%">SOCIEDAD VENEZOLANA DE LA CRUZ ROJA</textPath>
+        </text>
+        <text font-size="6.8" fill="#F41114" font-family="Arial,sans-serif" font-weight="700" letter-spacing="0.6">
+          <textPath href="#bc" startOffset="22%">· FUNDADA 1895 ·</textPath>
+        </text>
+        <circle cx="60" cy="60" r="42" fill="none" stroke="#F41114" stroke-width="1.5"/>
+        <rect x="30" y="53" width="60" height="14" rx="1.5" fill="#F41114"/>
+        <rect x="53" y="30" width="14" height="60" rx="1.5" fill="#F41114"/>
+      </svg>
+    </div>
     <div>
       <div class="hdr-title">Cruz Roja Venezolana</div>
       <div class="hdr-sub">Hoja de Ruta · Acceso y Legitimación 2026</div>
@@ -114,6 +140,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);
     <button class="tab" onclick="showPhase(2,this)">F2: Aprox.</button>
     <button class="tab" onclick="showPhase(3,this)">F3: Inmersión</button>
     <button class="tab" onclick="showPhase(4,this)">F4: Consol.</button>
+    <button class="tab" onclick="showPhase(5,this)">Preguntas</button>
   </div>
 </header>
 
@@ -311,21 +338,6 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);
       </div>
     </div>
   </div>
-
-  <div class="card" id="c1-docs">
-    <div class="card-hdr" onclick="toggleCard('c1-docs')">
-      <div class="card-num" style="background:var(--slate)">📄</div>
-      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 1)</div>
-      <div class="card-arr">▼</div>
-    </div>
-    <div class="card-body">
-      <ul class="lst dk">
-        <li><strong>00 HOJA G</strong> — Filtrar y evaluar datos secundarios.</li>
-        <li><strong>01 HOJA M</strong> — Modelo de riesgo (Amenaza + Vulnerabilidad).</li>
-        <li><strong>06 HOJA Q</strong> — Gestión de permisos legales y programación.</li>
-      </ul>
-    </div>
-  </div>
 </section>
 
 <!-- ═══════════════ FASE 2 ═══════════════ -->
@@ -426,7 +438,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);
   <div class="card" id="c2-4">
     <div class="card-hdr" onclick="toggleCard('c2-4')">
       <div class="card-num">4</div>
-      <div class="card-title">Aplicación obligatoria del Cuestionario de Evaluación Rápida <span class="badge ob">OBLIGATORIO</span></div>
+      <div class="card-title">Aplicación obligatoria del Cuestionario de Evaluación Rápida <span class="badge">OBLIGATORIO</span></div>
       <div class="card-check" onclick="toggleCheck(event,'c2-4')"></div>
       <div class="card-arr">▼</div>
     </div>
@@ -491,19 +503,6 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
         <div class="blk-body hide">Si la participación cae por debajo del umbral mínimo acordado en dos o más actividades consecutivas, revisar la estrategia de convocatoria antes de continuar.</div>
       </div>
-    </div>
-  </div>
-
-  <div class="card" id="c2-docs">
-    <div class="card-hdr" onclick="toggleCard('c2-docs')">
-      <div class="card-num" style="background:var(--slate)">📄</div>
-      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 2)</div>
-      <div class="card-arr">▼</div>
-    </div>
-    <div class="card-body">
-      <ul class="lst dk">
-        <li><strong>04 HOJA O</strong> — Cómo definir y comunicar el propósito del análisis.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -826,25 +825,6 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);
       </div>
     </div>
   </div>
-
-  <div class="card" id="c3-docs">
-    <div class="card-hdr" onclick="toggleCard('c3-docs')">
-      <div class="card-num" style="background:var(--slate)">📄</div>
-      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 3)</div>
-      <div class="card-arr">▼</div>
-    </div>
-    <div class="card-body">
-      <ul class="lst dk">
-        <li><strong>11 HOJA V</strong> — Estrategias de muestreo para asegurar representatividad.</li>
-        <li><strong>16 HOJA AA</strong> — Protocolos para migrantes y violencia de género.</li>
-        <li><strong>10 HOJA U</strong> — Mapeo físico de zonas de exclusión/riesgo.</li>
-        <li><strong>08 HOJA S & 09 HOJA T</strong> — Selección de herramientas para amenazas.</li>
-        <li><strong>15 HOJA Z</strong> — Crear indicadores medibles con la comunidad.</li>
-        <li><strong>02 HOJA N</strong> — Gestión del conocimiento e identificación de informantes.</li>
-        <li><strong>14 HOJA Y1</strong> — Sociograma de Redes de Influencia.</li>
-      </ul>
-    </div>
-  </div>
 </section>
 
 <!-- ═══════════════ FASE 4 ═══════════════ -->
@@ -928,21 +908,148 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--red);
       </div>
     </div>
   </div>
+</section>
 
-  <div class="card" id="c4-docs">
-    <div class="card-hdr" onclick="toggleCard('c4-docs')">
-      <div class="card-num" style="background:var(--slate)">📄</div>
-      <div class="card-title" style="color:var(--slate)">Documentos de consulta (Fase 4)</div>
-      <div class="card-arr">▼</div>
+<!-- ═══════════════ FASE 5: PREGUNTAS FRECUENTES ═══════════════ -->
+<section class="phase" id="p5">
+  <div class="phase-hdr">
+    <div class="phase-name">Preguntas Frecuentes</div>
+    <div class="phase-obj">Respuestas a situaciones del terreno que no siempre están explícitas en la guía principal.</div>
+  </div>
+
+  <div class="faq-intro">
+    Aquí encontrarás respuestas a situaciones frecuentes que no siempre están explícitas en la hoja de ruta principal.
+  </div>
+
+  <div class="faq-card" id="faq1">
+    <div class="faq-hdr" onclick="toggleFaq('faq1')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Cuántas personas debo llevar en la primera visita?</div>
+      <div class="faq-arr">▼</div>
     </div>
-    <div class="card-body">
-      <ul class="lst dk">
-        <li><strong>17 HOJA BB</strong> — Metodología técnica de validación de datos (Triangulación).</li>
-        <li><strong>19 HOJA DD</strong> — Técnica de reducción de datos y formulación de conclusiones objetivas.</li>
-        <li><strong>13 HOJA X</strong> — Producir y presentar datos de forma visual (estrella de la resiliencia).</li>
-        <li><strong>12 HOJA W</strong> — Clasificación interna de prioridades según urgencia e impacto.</li>
-        <li><strong>18 HOJA CC</strong> — Estructura técnica de planificación (ver Hoja GG en el archivo CC).</li>
-      </ul>
+    <div class="faq-body">
+      Lo ideal es un equipo reducido de 2 a 3 personas. Un equipo grande puede intimidar al liderazgo comunitario o interpretarse como una intervención masiva antes de haber establecido confianza. La composición mínima recomendada incluye a la persona responsable del análisis y al menos un acompañante. Si la filial tiene personal femenino disponible, es importante incluirlo, especialmente si se anticipan conversaciones sobre protección.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq2">
+    <div class="faq-hdr" onclick="toggleFaq('faq2')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Qué hago si la comunidad ya tuvo malas experiencias con otras organizaciones?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      No ignores ese historial ni lo minimices. En la primera visita, reconoce directamente que ha habido experiencias previas y pregunta qué funcionó y qué no. Usa ese historial como punto de partida para diferenciarte: explica cómo trabaja la CRV, cuál es su mandato y qué compromisos puedes hacer de forma realista. Las promesas incumplidas por otros no son tu culpa, pero construir confianza requiere que demuestres consecuencia entre lo que dices y lo que haces desde el primer momento.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq3">
+    <div class="faq-hdr" onclick="toggleFaq('faq3')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Cómo sé que ya obtuve el "aval" de la comunidad?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      El aval no es un documento firmado. Es un compromiso verbal y social del liderazgo comunitario reconocido para que la CRV trabaje en la comunidad. Las señales que indican que tienes el aval son: el liderazgo te presenta a otros miembros de la comunidad, te facilita acceso a espacios o personas clave, y hay disposición activa a participar en la convocatoria. Si el liderazgo es evasivo, pospone reuniones sin justificación o evita presentarte a otros actores, el aval aún no está consolidado.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq4">
+    <div class="faq-hdr" onclick="toggleFaq('faq4')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿El cuestionario se puede llenar en papel si no hay conexión a internet?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Sí. El cuestionario puede responderse en papel o en una copia del formulario descargada previamente, y luego transcribirse íntegramente en la plataforma Kobo cuando haya conectividad. Lo que no es aceptable es dejar la transcripción pendiente indefinidamente. Asegúrate de registrar siempre los campos de identificación: estado, municipio, parroquia y comunidad. Si hay dudas sobre la plataforma Kobo, consulta con el equipo de PMER antes de ir al campo.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq5">
+    <div class="faq-hdr" onclick="toggleFaq('faq5')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Qué señales indican que hay grupos armados o actores informales con control sobre la comunidad?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Hay señales sutiles y señales directas. Entre las sutiles: el liderazgo cambia su actitud de un día a otro sin explicación, hay personas desconocidas que observan las actividades sin identificarse, ciertos temas o espacios físicos son repentinamente restringidos, y se escuchan referencias veladas a "permisos" o "acuerdos" que deben gestionarse por fuera de los canales formales. Entre las directas: presencia visible de personas armadas, restricciones explícitas sobre horarios o zonas. Ante cualquiera de estas señales, documenta internamente, no confrontes directamente, y escala a la sede antes de continuar.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq6">
+    <div class="faq-hdr" onclick="toggleFaq('faq6')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Cuándo se puede omitir la notificación a autoridades civiles o militares?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Se puede omitir cuando: (1) no existe ningún requisito legal obligatorio para operar en esa jurisdicción, (2) el trabajo no involucra grupos que requieran habilitación especial, y (3) notificar representaría un riesgo para la aceptación del proyecto o para la comunidad. La notificación a autoridades nunca debe hacerse ANTES de obtener el aval de la comunidad. Si las autoridades preguntan por el trabajo de la CRV, puedes confirmar tu presencia de forma general sin revelar detalles operativos antes de que la comunidad esté informada.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq7">
+    <div class="faq-hdr" onclick="toggleFaq('faq7')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Qué hago si el liderazgo comunitario boicotea las actividades?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Primero, distingue entre boicot activo y desinterés pasivo. El boicot activo implica acciones deliberadas para obstaculizar: cancelar reuniones sin aviso, hablar negativamente del proyecto con otros miembros, bloquear el acceso. En ese caso: solicita una reunión directa con el liderazgo para entender el motivo, documenta la situación, y si no hay resolución en un plazo razonable, activa la evaluación de pausa o salida (Fase 3, Paso 9). No intentes "saltarte" al liderazgo para llegar directamente a la base comunitaria — eso agravaría el conflicto y comprometería la posición de la CRV.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq8">
+    <div class="faq-hdr" onclick="toggleFaq('faq8')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Cómo diferencio entre baja participación real y error de convocatoria?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Si la participación es baja, pregúntate primero: ¿supieron las personas de la actividad con suficiente anticipación? ¿El horario era accesible para la mayoría? ¿El lugar era conocido y fácil de llegar? ¿Había una actividad competidora ese día? Si alguna de estas variables falló, el problema es de convocatoria — ajusta la estrategia y vuelve a intentarlo. Si la convocatoria fue correcta y aun así la participación es baja en dos o más ocasiones consecutivas, el problema probablemente es de interés o de contexto comunitario, y debes evaluar con la sede qué ajustes hacer.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq9">
+    <div class="faq-hdr" onclick="toggleFaq('faq9')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Puedo coordinar simultáneamente con la alcaldía y con el liderazgo comunitario?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Sí, pero el orden importa. Primero debes obtener el aval de la comunidad, y solo después — si es necesario — notificar o coordinar con la alcaldía. Una vez que tienes el aval comunitario, la coordinación con la alcaldía puede ser útil para facilitar permisos, acceso o visibilidad. El riesgo es que el liderazgo comunitario interprete la coordinación con la alcaldía como una señal de que la CRV responde a intereses políticos antes que a los de la comunidad. Si la filial ya tiene una relación de trabajo con la alcaldía, esto puede aprovecharse, pero siempre en segundo plano respecto a la legitimación comunitaria.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq10">
+    <div class="faq-hdr" onclick="toggleFaq('faq10')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Cuándo se activa el protocolo de salida responsable?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Se evalúa la salida cuando se cumplen uno o más de estos criterios: la participación cae por debajo del mínimo acordado en dos o más actividades consecutivas, el liderazgo retira su aval, emergen condiciones de seguridad que comprometen al equipo o a los participantes, la comunidad rechaza explícitamente el proyecto, o los conflictos internos hacen imposible un trabajo neutral. La salida no es automática: primero se evalúa si es posible una pausa temporal o una redirección del proyecto. El cierre es el último recurso, y debe hacerse con un proceso de comunicación claro hacia la comunidad.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq11">
+    <div class="faq-hdr" onclick="toggleFaq('faq11')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Cómo demuestro al donante que los cambios del terreno son legítimos?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      La clave es documentar desde el principio. Usa el marco de discrepancia: describe lo que el proyecto exige ("X"), lo que encontraste en terreno ("Y") con evidencia de al menos tres fuentes (informantes distintos, observación directa, datos secundarios), el impacto que tendría ignorar "Y", y una propuesta concreta de ajuste que no comprometa los objetivos del proyecto. Presenta esto como un hallazgo técnico, no como una desviación. Los proyectos de gestión de riesgos y desarrollo comunitario tienen inherentemente incertidumbre: los donantes experimentados lo saben. Si el donante es inflexible, documenta la discrepancia en el expediente interno.
+    </div>
+  </div>
+
+  <div class="faq-card" id="faq12">
+    <div class="faq-hdr" onclick="toggleFaq('faq12')">
+      <div class="faq-num">?</div>
+      <div class="faq-q">¿Qué significa "triangular" la información y cuándo es suficiente?</div>
+      <div class="faq-arr">▼</div>
+    </div>
+    <div class="faq-body">
+      Triangular significa contrastar la misma información con al menos tres fuentes distintas: por ejemplo, lo que dice el líder, lo que dicen personas de base, y lo que reflejan los datos secundarios o la observación directa. La triangulación es suficiente cuando las tres fuentes convergen en la misma conclusión, o cuando las diferencias entre fuentes están explicadas (por ejemplo, el líder da una versión positiva porque tiene interés en el proyecto, mientras que la base es más crítica). Si las fuentes se contradicen y no hay explicación clara, se necesita más información antes de escribir conclusiones.
     </div>
   </div>
 </section>
@@ -980,7 +1087,6 @@ function toggleBlk(hdr) {
 function toggleBranch(btn, answerId) {
   const ans = document.getElementById(answerId);
   const isOpen = ans.classList.contains('show');
-  // close siblings
   const container = btn.closest('.branches');
   container.querySelectorAll('.br-ans').forEach(a => a.classList.remove('show'));
   container.querySelectorAll('.br-btn').forEach(b => b.classList.remove('open'));
@@ -990,11 +1096,15 @@ function toggleBranch(btn, answerId) {
   }
 }
 
+function toggleFaq(id) {
+  const card = document.getElementById(id);
+  card.classList.toggle('open');
+}
+
 // Auto-open first block of every card when card opens
 document.querySelectorAll('.card-hdr').forEach(hdr => {
   hdr.addEventListener('click', function() {
     const card = this.closest('.card');
-    // Already toggled; if now open, ensure first blk-accion is open
     setTimeout(() => {
       if (card.classList.contains('open')) {
         const firstBlk = card.querySelector('.blk-accion');
