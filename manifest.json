@@ -1,0 +1,33 @@
+{
+  "name": "Hoja de Ruta CRV",
+  "short_name": "CRV Ruta",
+  "description": "Guía de bolsillo para voluntarios de la Cruz Roja Venezolana — acceso y legitimación en comunidades",
+  "start_url": "./hoja_de_ruta_bolsillo.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#1C4269",
+  "theme_color": "#1C4269",
+  "lang": "es-VE",
+  "categories": ["utilities", "health"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#1C4269">
+<meta name="description" content="Guía de bolsillo para voluntarios de la Cruz Roja Venezolana en primera visita a comunidades">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CRV Ruta">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>Hoja de Ruta CRV — Guía de Bolsillo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1361,6 +1368,16 @@ function chooseOption(btn, nextId) {
   btn.style.fontWeight = '700';
   btn.style.pointerEvents = 'none';
   setTimeout(() => appendTreeNode(nextId), 120);
+}
+</script>
+
+<script>
+/* ── Registro del Service Worker ── */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .catch(err => console.warn('SW:', err));
+  });
 }
 </script>
 </body>
