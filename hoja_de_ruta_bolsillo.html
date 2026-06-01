@@ -96,6 +96,24 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
 .blk-body p:last-child{margin-bottom:0}
 /* FOOTER */
 .footer{background:var(--corp);color:#fff;text-align:center;padding:10px 16px;font-size:11px;margin:14px 12px 8px;border-radius:var(--radius);opacity:.85;font-weight:400}
+/* ÁRBOL DE DECISIONES */
+.tree-wrap{padding:0 12px 8px}
+.tree-phase-band{background:var(--corp);color:#fff;text-align:center;padding:10px 16px;border-radius:8px;font-size:12.5px;font-weight:700;margin:16px 0 8px;text-transform:uppercase;letter-spacing:.5px}
+.tree-step-box{background:#fff;border:2px solid var(--corp);border-radius:8px;padding:9px 14px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .15s;user-select:none}
+.tree-step-box:active{background:var(--corp-light)}
+.tree-step-n{width:22px;height:22px;background:var(--corp);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.tree-connector{text-align:center;color:#aaa;font-size:18px;line-height:1;padding:2px 0}
+.tree-decision-box{background:#FFF8E1;border:2px solid #E65100;border-radius:8px;padding:9px 14px;font-size:12.5px;font-weight:600;color:#BF360C;text-align:center;margin:0}
+.tree-decision-box::before{content:"◆  "}
+.tree-branches{display:flex;flex-direction:column;gap:5px;padding:6px 0 4px 18px;border-left:2px dashed #E65100;margin:4px 0 4px 10px}
+.tree-branch{border-radius:6px;padding:7px 10px;font-size:12.5px;display:flex;align-items:flex-start;gap:6px;line-height:1.4}
+.tree-branch-yes{background:#E8F5E9;border:1.5px solid #4CAF50}
+.tree-branch-no{background:#FFEBEE;border:1.5px solid #EF5350}
+.tree-branch-warn{background:#FFF8E1;border:1.5px solid #FF8F00}
+.tree-branch-label{font-weight:700;white-space:nowrap;flex-shrink:0}
+.tree-badge{display:inline-block;background:var(--red);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;text-transform:uppercase;vertical-align:middle;margin-left:4px}
+.tree-end{background:var(--corp);color:#fff;text-align:center;padding:14px;border-radius:10px;font-size:14px;font-weight:700;margin:16px 0 8px}
+.tree-hint{background:#fff;border-left:4px solid var(--pale);border-radius:var(--radius);padding:11px 14px;font-size:12.5px;color:var(--muted);font-style:italic;margin-bottom:4px;box-shadow:var(--shadow)}
 /* FAQ ACCORDION */
 .faq-intro{background:#fff;margin:12px 12px 0;padding:13px 16px;border-radius:var(--radius);box-shadow:var(--shadow);font-size:13.5px;color:var(--muted);font-style:italic;border-left:4px solid var(--pale)}
 .faq-card{background:#fff;margin:10px 12px 0;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
@@ -113,21 +131,11 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="hdr-top">
     <div class="logo">
       <svg width="44" height="44" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="Cruz Roja Venezolana">
-        <circle cx="60" cy="60" r="59" fill="white"/>
-        <circle cx="60" cy="60" r="57" fill="none" stroke="#F41114" stroke-width="2.5"/>
-        <defs>
-          <path id="tc" d="M 10,60 A 50,50 0 0,1 110,60"/>
-          <path id="bc" d="M 110,60 A 50,50 0 0,1 10,60"/>
-        </defs>
-        <text font-size="6.8" fill="#F41114" font-family="Arial,sans-serif" font-weight="700" letter-spacing="0.6">
-          <textPath href="#tc" startOffset="3%">SOCIEDAD VENEZOLANA DE LA CRUZ ROJA</textPath>
-        </text>
-        <text font-size="6.8" fill="#F41114" font-family="Arial,sans-serif" font-weight="700" letter-spacing="0.6">
-          <textPath href="#bc" startOffset="22%">· FUNDADA 1895 ·</textPath>
-        </text>
-        <circle cx="60" cy="60" r="42" fill="none" stroke="#F41114" stroke-width="1.5"/>
-        <rect x="30" y="53" width="60" height="14" rx="1.5" fill="#F41114"/>
-        <rect x="53" y="30" width="14" height="60" rx="1.5" fill="#F41114"/>
+        <circle cx="60" cy="60" r="57" fill="none" stroke="white" stroke-width="4"/>
+        <circle cx="60" cy="60" r="43" fill="white"/>
+        <circle cx="60" cy="60" r="43" fill="none" stroke="white" stroke-width="1.5"/>
+        <rect x="29" y="52" width="62" height="16" rx="2" fill="#F41114"/>
+        <rect x="52" y="29" width="16" height="62" rx="2" fill="#F41114"/>
       </svg>
     </div>
     <div>
@@ -141,6 +149,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
     <button class="tab" onclick="showPhase(3,this)">F3: Inmersión</button>
     <button class="tab" onclick="showPhase(4,this)">F4: Consol.</button>
     <button class="tab" onclick="showPhase(5,this)">Preguntas</button>
+    <button class="tab" onclick="showPhase(6,this)">Árbol</button>
   </div>
 </header>
 
@@ -449,7 +458,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
           <ul class="lst">
             <li>Debe ser respondido por <strong>líderes comunitarios, personal de salud y/o docentes</strong>, según la sección.</li>
             <li>Se aplica <strong>un solo cuestionario por comunidad</strong>.</li>
-            <li>Transcribir íntegramente en la plataforma <strong>Kobo</strong>, incluyendo los campos de identificación: estado, municipio, parroquia, comunidad.</li>
+            <li>Registrar en la app <strong>KoboToolbox</strong> (funciona sin internet — descarga el formulario antes de salir al campo y sincroniza cuando haya señal), incluyendo obligatoriamente: estado, municipio, parroquia, comunidad.</li>
           </ul>
           <a class="link-btn" href="https://ee.ifrc.org/x/M28RoiY6" target="_blank">📝 Abrir cuestionario</a>
         </div>
@@ -459,7 +468,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
         <div class="blk-body hide">
           <div class="branches">
             <button class="br-btn" onclick="toggleBranch(this,'br2-4a')"><span>✅</span><span>Durante la pre-visita de cortesía (Paso 1)</span></button>
-            <div class="br-ans" id="br2-4a">Ideal si el liderazgo ya está presente y hay tiempo suficiente. Asegúrate de tener conectividad o aplicarlo en físico para transcribir después.</div>
+            <div class="br-ans" id="br2-4a">Ideal si el liderazgo ya está presente y hay tiempo suficiente. La app KoboToolbox funciona sin internet: descarga el formulario antes de salir y sincroniza al tener señal.</div>
             <button class="br-btn" onclick="toggleBranch(this,'br2-4b')"><span>🔄</span><span>En un momento posterior, antes del trabajo en terreno</span></button>
             <div class="br-ans warn" id="br2-4b">También válido, siempre que sea antes de planificar las actividades. El cuestionario orienta qué hacer, no puede aplicarse después de haber iniciado.</div>
           </div>
@@ -924,7 +933,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="faq-card" id="faq1">
     <div class="faq-hdr" onclick="toggleFaq('faq1')">
       <div class="faq-num">?</div>
-      <div class="faq-q">¿Cuántas personas debo llevar en la primera visita?</div>
+      <div class="faq-q">¿Cuántas personas deben asistir a la primera visita?</div>
       <div class="faq-arr">▼</div>
     </div>
     <div class="faq-body">
@@ -957,11 +966,11 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="faq-card" id="faq4">
     <div class="faq-hdr" onclick="toggleFaq('faq4')">
       <div class="faq-num">?</div>
-      <div class="faq-q">¿El cuestionario se puede llenar en papel si no hay conexión a internet?</div>
+      <div class="faq-q">¿Cómo se aplica el cuestionario si no hay señal de internet en la comunidad?</div>
       <div class="faq-arr">▼</div>
     </div>
     <div class="faq-body">
-      Sí. El cuestionario puede responderse en papel o en una copia del formulario descargada previamente, y luego transcribirse íntegramente en la plataforma Kobo cuando haya conectividad. Lo que no es aceptable es dejar la transcripción pendiente indefinidamente. Asegúrate de registrar siempre los campos de identificación: estado, municipio, parroquia y comunidad. Si hay dudas sobre la plataforma Kobo, consulta con el equipo de PMER antes de ir al campo.
+      No es un problema. La app <strong>KoboToolbox</strong> funciona en modo offline: descarga el formulario en tu celular antes de salir al campo (solo necesitas internet en ese momento). Una vez en la comunidad, respondes el cuestionario completo sin conexión. Cuando vuelvas a tener señal, la app sincroniza automáticamente los datos. Lo que no es aceptable es aplicar el cuestionario y no sincronizarlo en los días posteriores. Asegúrate de registrar siempre: estado, municipio, parroquia y comunidad. Si tienes dudas sobre la configuración de la app, consulta con el equipo de PMER antes de salir al campo.
     </div>
   </div>
 
@@ -1045,12 +1054,185 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="faq-card" id="faq12">
     <div class="faq-hdr" onclick="toggleFaq('faq12')">
       <div class="faq-num">?</div>
-      <div class="faq-q">¿Qué significa "triangular" la información y cuándo es suficiente?</div>
+      <div class="faq-q">¿Se puede dialogar o generar acuerdos con grupos irregulares?</div>
       <div class="faq-arr">▼</div>
     </div>
     <div class="faq-body">
-      Triangular significa contrastar la misma información con al menos tres fuentes distintas: por ejemplo, lo que dice el líder, lo que dicen personas de base, y lo que reflejan los datos secundarios o la observación directa. La triangulación es suficiente cuando las tres fuentes convergen en la misma conclusión, o cuando las diferencias entre fuentes están explicadas (por ejemplo, el líder da una versión positiva porque tiene interés en el proyecto, mientras que la base es más crítica). Si las fuentes se contradicen y no hay explicación clara, se necesita más información antes de escribir conclusiones.
+      <p>La CRV opera bajo los principios de neutralidad, imparcialidad e independencia del Movimiento Internacional de la Cruz Roja y la Media Luna Roja. En contextos donde grupos irregulares tienen presencia o control territorial, puede ser necesario comunicarse con ellos para garantizar el acceso humanitario. Esto <strong>no equivale a negociar ni a legitimar su autoridad</strong>.</p>
+      <p style="margin-top:8px"><strong>Reglas sin excepción:</strong></p>
+      <ul class="lst" style="margin-top:6px">
+        <li>Cualquier comunicación tiene un único propósito: garantizar el acceso seguro para prestar asistencia humanitaria.</li>
+        <li>No se establecen acuerdos que comprometan la neutralidad, la independencia o la seguridad del equipo o la comunidad.</li>
+        <li>Todo acuerdo —por mínimo que sea— debe ser conocido por la coordinación nacional y documentado formalmente. Los acuerdos secretos o unilaterales no están permitidos.</li>
+        <li>Si un grupo exige beneficios, contraprestación o participación en la intervención como condición para el acceso, escala de inmediato a la sede nacional sin tomar ninguna decisión en terreno.</li>
+        <li>La decisión de operar en zonas con presencia de grupos irregulares no es de la filial: requiere validación de la coordinación nacional o del CICR según corresponda.</li>
+      </ul>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ÁRBOL DE DECISIONES ═══════════════ -->
+<section class="phase" id="p6">
+  <div class="phase-hdr">
+    <div class="phase-name">Árbol de Decisiones</div>
+    <div class="phase-obj">Vista general del flujo de trabajo. Toca cualquier paso para ver su detalle completo.</div>
+  </div>
+
+  <div class="tree-wrap">
+    <div class="tree-hint">Toca un paso (caja azul) para ir directamente a su contenido en la guía.</div>
+
+    <!-- ── FASE 1 ── -->
+    <div class="tree-phase-band">Fase 1: Pre-Despliegue</div>
+
+    <div class="tree-step-box" onclick="goToStep(1,'c1-1')">
+      <div class="tree-step-n">1</div>Selección y priorización de comunidades
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿La comunidad cumple al menos 3 criterios de selección?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-no"><span class="tree-branch-label">❌ NO</span><span>Escalar a sede central. No proceder sin justificación documentada.</span></div>
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">✅ SÍ</span><span>Continúa ↓</span></div>
+    </div>
+
+    <div class="tree-step-box" onclick="goToStep(1,'c1-2')">
+      <div class="tree-step-n">2</div>Articulación interna y auditoría de datos secundarios
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿Hubo malas experiencias previas con organizaciones en la comunidad?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">⚠ SÍ</span><span>Preparar estrategia de confianza antes de la primera visita.</span></div>
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">✅ NO</span><span>Continúa ↓</span></div>
+    </div>
+
+    <div class="tree-step-box" onclick="goToStep(1,'c1-4')">
+      <div class="tree-step-n">3</div>Evaluación de cohesión social
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿Cuál es el nivel de cohesión social detectado?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">ALTA</span><span>Apóyate en estructuras existentes. Estrategia directa.</span></div>
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">MEDIA</span><span>Prioriza contacto individual antes de actividades grupales.</span></div>
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">BAJA</span><span>Diseña la entrada para no reforzar divisiones. Consulta con sede.</span></div>
+    </div>
+
+    <div class="tree-step-box" onclick="goToStep(1,'c1-5')">
+      <div class="tree-step-n">4</div>Mapeo de actores clave
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <!-- ── FASE 2 ── -->
+    <div class="tree-phase-band">Fase 2: Aproximación y Legitimación</div>
+
+    <div class="tree-step-box" onclick="goToStep(2,'c2-1')">
+      <div class="tree-step-n">5</div>Pre-Visita de cortesía al liderazgo
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿Se obtiene el aval del liderazgo comunitario?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-no"><span class="tree-branch-label">❌ NO</span><span>Replantear estrategia de entrada. No continuar sin aval.</span></div>
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">✅ SÍ</span><span>Continúa ↓</span></div>
+    </div>
+
+    <div class="tree-step-box" onclick="goToStep(2,'c2-2')">
+      <div class="tree-step-n">6</div>Gestión de permisos con autoridades (solo si necesario, con aval previo)
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(2,'c2-3')">
+      <div class="tree-step-n">7</div>Definición del propósito y reconocimiento del saber local
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(2,'c2-4')">
+      <div class="tree-step-n">8</div>Aplicación del Cuestionario KoboToolbox <span class="tree-badge">OBLIGATORIO</span>
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(2,'c2-5')">
+      <div class="tree-step-n">9</div>Planificación de la convocatoria comunitaria
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <!-- ── FASE 3 ── -->
+    <div class="tree-phase-band">Fase 3: Inmersión y Profundización</div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-1')">
+      <div class="tree-step-n">10</div>Muestreo inclusivo y verificación de representatividad
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿Todos los grupos de la comunidad están representados?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">⚠ NO</span><span>Activar estrategias de convocatoria alternativas (F2, Paso 5).</span></div>
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">✅ SÍ</span><span>Continúa ↓</span></div>
+    </div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-2')">
+      <div class="tree-step-n">11</div>Mapeo de gobernanza, relaciones económicas y poder real
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-3')">
+      <div class="tree-step-n">12</div>Identificación y gestión de actores de poder informal
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿Los actores informales representan un riesgo real?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-no"><span class="tree-branch-label">❌ RIESGO</span><span>Activar protocolo de seguridad. Escalar a sede de inmediato.</span></div>
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">⚠ PRESENTES</span><span>Observación activa, no confrontar. Mantener neutralidad visible.</span></div>
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">✅ NO</span><span>Continúa ↓</span></div>
+    </div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-4')">
+      <div class="tree-step-n">13</div>Acercamiento al problema y análisis de amenazas
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-5')">
+      <div class="tree-step-n">14</div>Herramientas de protección (solo entrevistas individuales para temas sensibles)
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-6')">
+      <div class="tree-step-n">15</div>Gestión de la presencia del liderazgo en espacios grupales
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-7')">
+      <div class="tree-step-n">16</div>Apropiación y adaptación local de herramientas técnicas
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-step-box" onclick="goToStep(3,'c3-8')">
+      <div class="tree-step-n">17</div>Validación cultural
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿Las condiciones del trabajo en terreno son viables para continuar?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">⏸ PAUSA</span><span>Problema coyuntural o temporal. Suspender y retomar cuando mejore el contexto.</span></div>
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">🔄 REDIRIGIR</span><span>Problema de pertinencia. Reorientar la intervención dentro del mandato.</span></div>
+      <div class="tree-branch tree-branch-no"><span class="tree-branch-label">🚪 SALIDA</span><span>Condiciones no permiten continuar. Cierre responsable: informar a la comunidad, documentar, dejar la puerta abierta.</span></div>
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">✅ VIABLE</span><span>Continúa a Fase 4 ↓</span></div>
+    </div>
+
+    <!-- ── FASE 4 ── -->
+    <div class="tree-phase-band">Fase 4: Consolidación</div>
+
+    <div class="tree-step-box" onclick="goToStep(4,'c4-1')">
+      <div class="tree-step-n">18</div>Síntesis y triangulación de hallazgos
+    </div>
+    <div class="tree-connector">↓</div>
+    <div class="tree-decision-box">¿Hay discrepancia entre lo que exige el donante y la realidad del terreno?</div>
+    <div class="tree-branches">
+      <div class="tree-branch tree-branch-warn"><span class="tree-branch-label">⚠ SÍ</span><span>Documentar con evidencia de 3 fuentes. Proponer ajuste técnico. Negociar con el donante.</span></div>
+      <div class="tree-branch tree-branch-yes"><span class="tree-branch-label">✅ NO</span><span>Continúa ↓</span></div>
+    </div>
+
+    <div class="tree-step-box" onclick="goToStep(4,'c4-2')">
+      <div class="tree-step-n">19</div>Gestión de la tensión donante / realidad comunitaria
+    </div>
+    <div class="tree-connector">↓</div>
+
+    <div class="tree-end">✅ Acceso y legitimación consolidados</div>
   </div>
 </section>
 
@@ -1099,6 +1281,21 @@ function toggleBranch(btn, answerId) {
 function toggleFaq(id) {
   const card = document.getElementById(id);
   card.classList.toggle('open');
+}
+
+function goToStep(phase, cardId) {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  if (tabs[phase - 1]) tabs[phase - 1].classList.add('active');
+  document.querySelectorAll('.phase').forEach(s => s.classList.remove('active'));
+  const phaseEl = document.getElementById('p' + phase);
+  if (phaseEl) phaseEl.classList.add('active');
+  window.scrollTo({top: 0});
+  const card = document.getElementById(cardId);
+  if (card) {
+    if (!card.classList.contains('open')) card.classList.add('open');
+    setTimeout(() => card.scrollIntoView({behavior:'smooth', block:'start'}), 80);
+  }
 }
 
 // Auto-open first block of every card when card opens
