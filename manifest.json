@@ -2,7 +2,7 @@
   "name": "Hoja de Ruta CRV",
   "short_name": "CRV Ruta",
   "description": "Guía de bolsillo para voluntarios de la Cruz Roja Venezolana — acceso y legitimación en comunidades",
-  "start_url": "./hoja_de_ruta_bolsillo.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",

@@ -5,8 +5,9 @@
    la descarga de la versión nueva.
    ============================================================ */
 
-const CACHE_VER  = 'crv-ruta-v1';
+const CACHE_VER  = 'crv-ruta-v2';
 const CACHE_URLS = [
+  './',
   './hoja_de_ruta_bolsillo.html',
   './manifest.json',
   './icons/icon-192.png',
@@ -55,7 +56,7 @@ self.addEventListener('fetch', event => {
       });
     }).catch(() => {
       /* Sin red y sin caché: devolver página principal si existe */
-      return caches.match('./hoja_de_ruta_bolsillo.html');
+      return caches.match('./');
     })
   );
 });
