@@ -150,9 +150,39 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
 .tn-stop{background:#FFEBEE;border:2px solid #C62828;border-radius:8px;padding:12px 14px;font-size:13px;font-weight:600;color:#B71C1C}
 .tn-end{background:var(--corp);color:#fff;text-align:center;padding:14px;border-radius:10px;font-size:14px;font-weight:700}
 .tn-restart{width:100%;background:transparent;color:var(--corp);border:2px solid var(--corp);border-radius:8px;padding:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:6px;-webkit-tap-highlight-color:transparent}
+#chrome-banner{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#F41114;color:#fff;padding:14px 16px;font-family:var(--font);font-size:14px;font-weight:700;text-align:center;box-shadow:0 -3px 12px rgba(0,0,0,.3)}
+#chrome-banner a{color:#fff;text-decoration:none;display:block;padding:4px 0}
+#chrome-banner small{display:block;font-weight:400;font-size:12px;margin-top:4px;opacity:.9}
 </style>
 </head>
 <body>
+
+<!-- Banner: solo visible cuando se abre desde WhatsApp u otro navegador in-app -->
+<div id="chrome-banner">
+  <a id="chrome-link" href="#">
+    📲 Toca aquí para abrir en Chrome
+    <small>Necesario para instalar la app y usarla sin internet</small>
+  </a>
+</div>
+
+<script>
+(function(){
+  var ua = navigator.userAgent || '';
+  var isInApp = /WhatsApp|Instagram|FBAN|FBAV|Telegram|wv\)/.test(ua)
+             || (ua.includes('Android') && ua.includes('Version/') && !ua.includes('Chrome'));
+  if (!isInApp) return;
+  var url = location.href;
+  var intentUrl = 'intent://' + url.replace(/^https?:\/\//, '')
+    + '#Intent;scheme=https;package=com.android.chrome;end';
+  var el = document.getElementById('chrome-banner');
+  var link = document.getElementById('chrome-link');
+  link.href = intentUrl;
+  el.style.display = 'block';
+  // Añadir padding al body para que el banner no tape contenido
+  document.body.style.paddingBottom = '80px';
+})();
+</script>
+
 <header>
   <div class="hdr-top">
     <div class="logo">
