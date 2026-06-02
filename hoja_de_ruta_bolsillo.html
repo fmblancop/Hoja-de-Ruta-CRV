@@ -212,7 +212,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
       <div class="hdr-title">Cruz Roja Venezolana</div>
       <div class="hdr-sub">Hoja de Ruta · Acceso y Legitimación 2026</div>
     </div>
-    <button id="install-btn" onclick="installApp()" style="display:none;margin-left:auto;background:rgba(255,255,255,.2);color:#fff;border:1.5px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;-webkit-tap-highlight-color:transparent">⬇ Instalar</button>
+    <button id="install-btn" onclick="installApp()" style="margin-left:auto;background:rgba(255,255,255,.2);color:#fff;border:1.5px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;-webkit-tap-highlight-color:transparent">⬇ Instalar</button>
   </div>
   <div class="tabs">
     <button class="tab active" onclick="showPhase(1,this)">F1: Análisis</button>
@@ -1413,15 +1413,18 @@ if ('serviceWorker' in navigator) {
 
 /* ── Botón de instalación ── */
 var _installPrompt = null;
+
+// Ocultar botón si ya está instalada (modo standalone)
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+  document.getElementById('install-btn').style.display = 'none';
+}
+
 window.addEventListener('beforeinstallprompt', function(e) {
   e.preventDefault();
   _installPrompt = e;
-  var btn = document.getElementById('install-btn');
-  if (btn) btn.style.display = 'block';
 });
 window.addEventListener('appinstalled', function() {
-  var btn = document.getElementById('install-btn');
-  if (btn) btn.style.display = 'none';
+  document.getElementById('install-btn').style.display = 'none';
   _installPrompt = null;
 });
 function installApp() {
@@ -1429,7 +1432,7 @@ function installApp() {
     _installPrompt.prompt();
     _installPrompt.userChoice.then(function() { _installPrompt = null; });
   } else {
-    alert('Para instalar: menú ⋮ → "Instalar app" o "Añadir a pantalla de inicio"');
+    alert('Toca el menú ⋮ de Chrome → "Instalar app" o "Añadir a pantalla de inicio"');
   }
 }
 </script>
