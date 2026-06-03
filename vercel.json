@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/hoja_de_ruta_bolsillo.html" }
+  ]
+}
