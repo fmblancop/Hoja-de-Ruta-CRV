@@ -215,8 +215,8 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
     <button id="install-btn" onclick="installApp()" style="margin-left:auto;background:rgba(255,255,255,.2);color:#fff;border:1.5px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 12px;font-size:11px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;-webkit-tap-highlight-color:transparent">⬇ Instalar</button>
   </div>
   <div class="tabs">
-    <button class="tab" onclick="showPhase(0,this)">Contexto</button>
-    <button class="tab active" onclick="showPhase(1,this)">F1: Análisis</button>
+    <button class="tab active" onclick="showPhase(0,this)">Contexto</button>
+    <button class="tab" onclick="showPhase(1,this)">F1: Análisis</button>
     <button class="tab" onclick="showPhase(2,this)">F2: Aprox.</button>
     <button class="tab" onclick="showPhase(3,this)">F3: Inmersión</button>
     <button class="tab" onclick="showPhase(4,this)">F4: Consol.</button>
@@ -226,7 +226,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
 </header>
 
 <!-- ═══════════════ CONTEXTO ═══════════════ -->
-<section class="phase" id="p0">
+<section class="phase active" id="p0">
 
   <div style="background:#1C4269;margin:10px 12px 0;border-radius:12px;padding:16px 16px 12px;color:#fff">
     <p style="font-size:11px;font-weight:700;letter-spacing:1px;opacity:.7;margin-bottom:4px;text-transform:uppercase">Antes de comenzar</p>
@@ -284,7 +284,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
 </section>
 
 <!-- ═══════════════ FASE 1 ═══════════════ -->
-<section class="phase active" id="p1">
+<section class="phase" id="p1">
 
   <div style="background:#fff;margin:10px 12px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.12);padding:16px;border-left:5px solid #6F98BC">
     <p style="font-size:14px;font-weight:700;color:#1C4269;margin-bottom:8px">¿Cómo usar esta guía?</p>
