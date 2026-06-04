@@ -103,6 +103,21 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
 .blk-body p:last-child{margin-bottom:0}
 /* FOOTER */
 .footer{background:var(--corp);color:#fff;text-align:center;padding:10px 16px;font-size:11px;margin:14px 12px 8px;border-radius:var(--radius);opacity:.85;font-weight:400}
+/* ERRORES Y ACIERTOS */
+.ea-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ea-card{background:#fff;padding:12px;border-radius:0 8px 8px 0}
+.ea-card-ok{border-left:3px solid #1D9E75}
+.ea-card-err{border-left:3px solid #D85A30}
+.ea-label-ok{font-size:11px;letter-spacing:.05em;font-weight:700;color:#1D9E75;margin:0 0 6px;text-transform:uppercase}
+.ea-label-err{font-size:11px;letter-spacing:.05em;font-weight:700;color:#D85A30;margin:0 0 6px;text-transform:uppercase}
+.ea-action{font-size:13px;font-weight:700;color:#222;margin:0 0 6px;line-height:1.4}
+.ea-effect{font-size:13px;color:#444;margin:0 0 8px;line-height:1.55}
+.ea-note{background:#F2F2F2;border-radius:6px;padding:8px 10px;font-size:12.5px;color:#555;font-style:italic;line-height:1.5}
+.ea-moment{display:flex;align-items:center;gap:8px;margin:14px 12px 0}
+.ea-moment-txt{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:#888;text-transform:uppercase;white-space:nowrap}
+.ea-moment-line{flex:1;height:.5px;background:#ddd}
+.ea-sublabel{font-size:11.5px;color:#999;margin-bottom:5px}
+@media(max-width:500px){.ea-grid{grid-template-columns:1fr}}
 /* ÁRBOL DE DECISIONES */
 .tree-wrap{padding:0 12px 8px}
 .tree-phase-band{background:var(--corp);color:#fff;text-align:center;padding:10px 16px;border-radius:8px;font-size:12.5px;font-weight:700;margin:16px 0 8px;text-transform:uppercase;letter-spacing:.5px}
@@ -216,6 +231,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   </div>
   <div class="tabs">
     <button class="tab active" onclick="showPhase(0,this)">Contexto</button>
+    <button class="tab" onclick="showPhase('ea',this)">Errores y aciertos</button>
     <button class="tab" onclick="showPhase(1,this)">F1: Análisis</button>
     <button class="tab" onclick="showPhase(2,this)">F2: Aprox.</button>
     <button class="tab" onclick="showPhase(3,this)">F3: Inmersión</button>
@@ -279,6 +295,173 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div style="background:#1C4269;margin:10px 12px 16px;border-radius:12px;padding:16px">
     <p style="font-size:14px;color:#fff;font-weight:700;line-height:1.5;margin:0 0 6px">No basta con querer ayudar.</p>
     <p style="font-size:13.5px;color:rgba(255,255,255,.88);line-height:1.65;margin:0">Esta guía existe para que nuestra presencia técnica sea tan <em>respetuosa</em> como efectiva, asegurando que la comunidad sea la verdadera dueña de su transformación.</p>
+  </div>
+
+</section>
+
+<!-- ═══════════════ ERRORES Y ACIERTOS ═══════════════ -->
+<section class="phase" id="pea">
+
+  <div style="background:#fff;margin:10px 12px 0;border-radius:12px;padding:14px 16px">
+    <p style="font-size:13.5px;color:#444;line-height:1.65;margin:0">Antes de tu primer despliegue, revisa estas situaciones. No son reglas abstractas: son errores reales que ocurren en campo y formas concretas de evitarlos.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 12px 0;padding:0 2px">
+    <div style="font-size:11px;color:#555;font-weight:600;letter-spacing:.05em"><span style="color:#1D9E75">●</span> QUÉ HACER</div>
+    <div style="font-size:11px;color:#555;font-weight:600;letter-spacing:.05em"><span style="color:#D85A30">●</span> QUÉ EVITAR</div>
+  </div>
+
+  <!-- ── Momento 1 ── -->
+  <div class="ea-moment"><span class="ea-moment-txt">1 · Antes de hablar: cómo llegar</span><div class="ea-moment-line"></div></div>
+
+  <div style="margin:6px 12px 0">
+    <p class="ea-sublabel">Postura y primer contacto</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Llega como aprendiz, no como experto.</p>
+        <p class="ea-effect">Camina la comunidad antes de abrir cualquier formulario. Observa los mercados, las plazas, las rutinas. Participa en lo que te inviten a hacer. Ese recorrido vale más que cualquier diagnóstico previo.</p>
+        <div class="ea-note">Cuando la comunidad te ve trabajar antes de preguntar, te percibe como colaborador, no como inspector.</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No llegues con la tableta de KoBo el primer día.</p>
+        <p class="ea-effect">Iniciar con encuestas o cuestionarios antes de establecer confianza genera resistencia. La comunidad responde lo que cree que el voluntario quiere escuchar, no lo que realmente vive.</p>
+        <div class="ea-note">Un cuestionario llenado sin confianza produce datos inútiles. El formulario viene después de la escucha.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:10px 12px 0">
+    <p class="ea-sublabel">Reconocimiento del saber local</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Pregunta primero cómo lo hacen ellos.</p>
+        <p class="ea-effect">Antes de proponer cualquier solución técnica, investiga cómo la comunidad ya resuelve el problema: cómo consiguen agua, cómo atienden una emergencia, cómo cuidan a sus enfermos. Ese saber existe aunque no esté escrito en ningún manual.</p>
+        <div class="ea-note">«¿Cómo hacen esto?» Es la pregunta más importante que puedes hacer.</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No asumas que ser vulnerable es no saber nada.</p>
+        <p class="ea-effect">Presentar una solución técnica sin preguntar primero invalida la experiencia local y genera rechazo. La comunidad percibe que la CRV llega a enseñar, no a construir junto a ellos.</p>
+        <div class="ea-note">Una intervención que ignora el saber local no fortalece: sustituye. Y lo sustituido regresa en cuanto la CRV se va.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:10px 12px 0">
+    <p class="ea-sublabel">Representatividad de voces</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Sal de la reunión y camina hasta la última casa.</p>
+        <p class="ea-effect">Las personas más vulnerables rara vez asisten a asambleas. Para encontrarlas, hay que ir a donde están: los mercados en la mañana, las salidas de la escuela, los espacios donde se reúne la gente sin ser convocada.</p>
+        <div class="ea-note">Las voces que no están en la reunión suelen ser las que más necesitan la ayuda. Búscalas con insistencia (ver F3, Paso 1).</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No limites el diagnóstico a quienes asisten a las asambleas.</p>
+        <p class="ea-effect">Las reuniones formales tienden a reproducir la red social del liderazgo, no la diversidad de la comunidad. Mujeres y hombres con sobrecarga de trabajo, adultos mayores y jóvenes desempleados suelen quedar fuera sin que nadie lo note.</p>
+        <div class="ea-note">Un diagnóstico sin esas voces produce una intervención que no llega a quienes más la necesitan.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Momento 2 ── -->
+  <div class="ea-moment"><span class="ea-moment-txt">2 · Mientras trabajas: cómo acompañar</span><div class="ea-moment-line"></div></div>
+
+  <div style="margin:6px 12px 0">
+    <p class="ea-sublabel">Poder formal e informal</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Observa quién da el permiso real, no solo el formal.</p>
+        <p class="ea-effect">Si notas que la gente mira a una persona específica antes de responder, has identificado el poder real. Ese actor influye en el proyecto aunque no tenga ningún cargo. Trabaja con esa realidad, no contra ella.</p>
+        <div class="ea-note">No es necesario confrontar a ese actor ni ignorarlo. El equilibrio está en mantener la neutralidad visible y documentar lo que observas (ver F3, Paso 3).</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No ignores las dinámicas de poder informal.</p>
+        <p class="ea-effect">Cuando el proyecto no reconoce a quién realmente controla el acceso a recursos o decisiones, el resultado es una intervención que profundiza la desigualdad interna en lugar de reducirla.</p>
+        <div class="ea-note">Si el proyecto beneficia siempre a los mismos, la base comunitaria eventualmente lo sabotea, aunque en silencio.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:10px 12px 0">
+    <p class="ea-sublabel">Estructura social y carga de trabajo</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Adapta el proyecto a cómo se organiza la gente, no al revés.</p>
+        <p class="ea-effect">Si la lógica local es familiar (rural) o individual (urbano), no impongas estructuras que la cultura local no reconoce. Respeta la forma en que la comunidad trabaja y produce. Un proyecto bien adaptado no necesita convencer a nadie de cambiar su manera de vivir.</p>
+        <div class="ea-note">Antes de proponer una nueva tarea, pregunta: ¿a qué hora lo va a hacer? Si le quita horas de sueño a alguien que ya trabaja doce horas, la intervención fracasará aunque el diseño sea perfecto.</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No ignores la carga de trabajo de las mujeres en el hogar.</p>
+        <p class="ea-effect">Introducir nuevas tareas sin considerar quién las va a ejecutar convierte el proyecto en una carga adicional. Las mujeres, que ya sostienen la mayor parte del trabajo doméstico y de cuidado, son las primeras en rechazar silenciosamente una intervención que no tomó en cuenta su tiempo.</p>
+        <div class="ea-note">El rechazo silencioso es más difícil de detectar que el rechazo abierto. Para entonces, el proyecto ya habrá fracasado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:10px 12px 0">
+    <p class="ea-sublabel">Rol del voluntario</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Acepta que no lo sabes todo. Rediseña con los vecinos.</p>
+        <p class="ea-effect">Cuando algo no funciona en el primer mes, no fuerces el plan original. Convoca a la comunidad, muestra lo que no funcionó y pregunta cómo modificarlo. Esa conversación, bien llevada, refuerza la confianza más que cualquier actividad planificada.</p>
+        <div class="ea-note">El error es una fuente rica de datos. Lo que sí es un fracaso es no corregir el rumbo cuando la evidencia lo pide.</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No tomes decisiones estratégicas «por el bien de ellos».</p>
+        <p class="ea-effect">Asumir que el experto tiene una verdad superior convierte a la comunidad en sujeto pasivo. La gente que no participa en las decisiones no se apropia de los resultados. Cuando la CRV se va, el proyecto muere.</p>
+        <div class="ea-note">Tu meta es ser prescindible al final del proceso. Si la comunidad te necesita para decidir todo, no has empoderado a nadie.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Momento 3 ── -->
+  <div class="ea-moment"><span class="ea-moment-txt">3 · Cuando te vas: cómo no dejar dependencia</span><div class="ea-moment-line"></div></div>
+
+  <div style="margin:6px 12px 0">
+    <p class="ea-sublabel">Apropiación técnica</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Asegúrate de que el mantenimiento técnico quede en manos locales.</p>
+        <p class="ea-effect">Cualquier herramienta técnica —una bomba de agua, un sistema de alerta, un equipo médico— debe poder ser operada y mantenida por al menos dos personas de la comunidad sin asistencia externa. Si el conocimiento para hacerlo funcionar se va contigo, la herramienta dejará de funcionar.</p>
+        <div class="ea-note">«Una bomba de agua no es un éxito si el repuesto solo lo tienes tú.» El indicador real de éxito no es la instalación, sino la apropiación (ver F3, Paso 7).</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No monopolices el conocimiento técnico.</p>
+        <p class="ea-effect">Cuando solo el experto sabe cómo opera o repara la herramienta, se genera dependencia externa. La comunidad pasa de ser destinataria de una ayuda a ser rehén de la presencia continua del voluntario o la organización.</p>
+        <div class="ea-note">Una herramienta técnica instalada pero no apropiada es un indicador de fracaso operativo real, no de éxito.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:10px 12px 16px">
+    <p class="ea-sublabel">Cierre y salida</p>
+    <div class="ea-grid">
+      <div class="ea-card ea-card-ok">
+        <p class="ea-label-ok">● Acierto</p>
+        <p class="ea-action">Si el proyecto cambia de rumbo, díselo primero a la comunidad.</p>
+        <p class="ea-effect">Cuando los hallazgos de terreno se alejan de lo que el donante exigía, documenta la discrepancia con evidencia de al menos tres fuentes y propón un ajuste concreto. Esa documentación es lo que te permite negociar sin traicionar lo que encontraste en campo.</p>
+        <div class="ea-note">Las conclusiones del informe deben poder ser leídas por la comunidad. Si no las reconocen como suyas, el riesgo de rechazo se multiplica (ver F4, Paso 1).</div>
+      </div>
+      <div class="ea-card ea-card-err">
+        <p class="ea-label-err">● Error</p>
+        <p class="ea-action">No salgas de una comunidad sin un proceso de cierre.</p>
+        <p class="ea-effect">Una salida abrupta —sin explicar los motivos, sin agradecer la colaboración, sin dejar abierta la posibilidad de retomar— daña la reputación de la CRV y cierra el acceso futuro. El cierre es también una forma de legitimación.</p>
+        <div class="ea-note">Si las condiciones no permiten continuar, comunícalo con claridad y respeto. Un cierre bien hecho es tan importante como una entrada bien hecha (ver F3, Paso 9).</div>
+      </div>
+    </div>
   </div>
 
 </section>
@@ -1283,7 +1466,7 @@ function toggleFaq(id) {
 function goToStep(phase, cardId) {
   const tabs = document.querySelectorAll('.tab');
   tabs.forEach(t => t.classList.remove('active'));
-  if (tabs[phase]) tabs[phase].classList.add('active');
+  if (tabs[phase + 1]) tabs[phase + 1].classList.add('active');
   document.querySelectorAll('.phase').forEach(s => s.classList.remove('active'));
   const phaseEl = document.getElementById('p' + phase);
   if (phaseEl) phaseEl.classList.add('active');
