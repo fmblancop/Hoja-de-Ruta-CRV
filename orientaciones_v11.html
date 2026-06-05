@@ -14,9 +14,9 @@
       --fondo:    #F8F9FA;
       --texto:    #212529;
       --h1: 30px;
-      --h2: 15px;   /* 50% de h1 */
+      --h2: 15px;
       --p:  14px;
-      --lh: 24px;   /* p + 10 */
+      --lh: 24px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,7 +35,7 @@
       padding: 40px 32px;
     }
 
-    /* ENCABEZADO */
+    /* ── ENCABEZADO ── */
     .header {
       display: flex;
       justify-content: space-between;
@@ -46,27 +46,19 @@
       margin-bottom: 28px;
     }
 
-    .logo-placeholder {
+    .logo-crv {
       flex-shrink: 0;
-      width: 140px;
-      height: 80px;
-      border: 2px dashed #ccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 11px;
-      text-align: center;
-      padding: 8px;
+      width: 90px;
+      height: auto;
+      object-fit: contain;
     }
 
-    /* TIPOGRAFÍA */
+    /* ── TIPOGRAFÍA ── */
     h1 {
       font-size: var(--h1);
       font-weight: bold;
       color: var(--primario);
       line-height: var(--h1);
-      margin-bottom: 0;
     }
 
     h2 {
@@ -85,9 +77,7 @@
       margin-bottom: 8px;
     }
 
-    ul, ol {
-      margin: 6px 0 10px 22px;
-    }
+    ul, ol { margin: 6px 0 10px 22px; }
 
     li {
       font-size: var(--p);
@@ -97,17 +87,65 @@
     }
 
     a { color: var(--primario); }
-
     strong { font-weight: 700; }
 
-    /* RESUMEN DE FASES */
-    .fases-intro {
+    /* ── ÍNDICE ── */
+    .toc {
+      background: var(--fondo);
+      border-left: 4px solid var(--primario);
+      padding: 16px 20px;
       margin-bottom: 32px;
     }
 
-    .fases-intro > p {
+    .toc-titulo {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primario);
       margin-bottom: 12px;
+      text-transform: none;
     }
+
+    .toc > ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: fase-counter;
+    }
+
+    .toc > ol > li {
+      counter-increment: fase-counter;
+      margin-bottom: 8px;
+    }
+
+    .toc > ol > li > a {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--primario);
+      text-decoration: none;
+    }
+
+    .toc > ol > li > a:hover { text-decoration: underline; }
+
+    .toc-sub {
+      list-style: none;
+      margin: 4px 0 0 14px;
+      padding: 0;
+    }
+
+    .toc-sub li { margin-bottom: 2px; }
+
+    .toc-sub a {
+      font-size: 12px;
+      color: var(--texto);
+      text-decoration: none;
+      line-height: 20px;
+    }
+
+    .toc-sub a:hover { text-decoration: underline; color: var(--primario); }
+
+    /* ── RESUMEN DE FASES ── */
+    .fases-intro { margin-bottom: 32px; }
+    .fases-intro > p { margin-bottom: 12px; }
 
     .fases-grid {
       display: grid;
@@ -129,22 +167,22 @@
       margin-bottom: 4px;
     }
 
-    .fase-card p {
-      font-size: 12px;
-      line-height: 20px;
-      margin: 0;
-    }
+    .fase-card p { font-size: 12px; line-height: 20px; margin: 0; }
 
-    /* FASES */
-    .fase {
-      margin-bottom: 48px;
-    }
+    /* ── FASES ── */
+    .fase { margin-bottom: 48px; }
 
     .fase-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: var(--primario);
       color: #fff;
       padding: 13px 20px;
       margin: 0 -32px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .fase-header h2 {
@@ -153,6 +191,14 @@
       font-weight: 700;
       font-style: normal;
       line-height: 17px;
+      flex: 1;
+    }
+
+    .fase-num {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+      white-space: nowrap;
     }
 
     .fase-objetivo {
@@ -165,10 +211,8 @@
       margin-bottom: 20px;
     }
 
-    /* SECCIONES */
-    .seccion {
-      margin-bottom: 26px;
-    }
+    /* ── SECCIONES ── */
+    .seccion { margin-bottom: 26px; scroll-margin-top: 52px; }
 
     .sec-titulo {
       font-size: 15px;
@@ -186,7 +230,7 @@
       margin: 10px 0 4px;
     }
 
-    /* CALLOUTS */
+    /* ── CALLOUTS ── */
     .cb {
       padding: 9px 14px;
       margin-bottom: 8px;
@@ -194,13 +238,11 @@
       line-height: var(--lh);
     }
 
-    .cb-label {
-      font-weight: 700;
-    }
+    .cb-label { font-weight: 700; }
 
-    .cb-accion    { border-left: 3px solid var(--primario); background: #eef2f7; }
-    .cb-critico   { border-left: 3px solid var(--acento);   background: #fff5f5; }
-    .cb-estrategia{ border-left: 3px solid #6c757d;          background: var(--fondo); }
+    .cb-accion     { border-left: 3px solid var(--primario); background: #eef2f7; }
+    .cb-critico    { border-left: 3px solid var(--acento);   background: #fff5f5; }
+    .cb-estrategia { border-left: 3px solid #6c757d;          background: var(--fondo); }
     .cb-herramienta{ border-left: 3px solid var(--primario); background: #eef2f7; }
     .cb-restriccion{ border-left: 3px solid var(--acento);   background: #fff5f5; }
     .cb-proposito  { border-left: 3px solid var(--primario); background: #eef2f7; }
@@ -208,14 +250,10 @@
     .cb-critico .cb-label    { color: var(--acento); }
     .cb-restriccion .cb-label{ color: var(--acento); }
 
-    /* TABLAS */
+    /* ── TABLAS ── */
     .tbl-wrap { overflow-x: auto; margin: 12px 0; }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
 
     thead tr { background: var(--primario); color: #fff; }
 
@@ -235,7 +273,7 @@
       line-height: 20px;
     }
 
-    /* PIE */
+    /* ── PIE ── */
     .pie {
       margin-top: 48px;
       padding-top: 14px;
@@ -245,28 +283,55 @@
       text-align: center;
     }
 
-    /* RESPONSIVE */
+    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
       .doc { padding: 20px 16px; }
-      .header { flex-direction: column-reverse; }
-      .logo-placeholder { width: 100%; }
+      .header { flex-direction: column-reverse; align-items: flex-start; }
+      .logo-crv { width: 70px; }
       .fases-grid { grid-template-columns: 1fr; }
       .fase-header { margin: 0 -16px 16px; }
       h1 { font-size: 22px; line-height: 22px; }
     }
 
-    /* PRINT */
+    /* ── PRINT ── */
     @media print {
-      .doc { padding: 16px; max-width: 100%; }
-      .logo-placeholder { display: none; }
-      .fase-header,
-      thead tr,
+      @page {
+        margin: 2cm 2cm 2.5cm;
+        @bottom-center {
+          content: "Página " counter(page) " de " counter(pages);
+          font-family: 'Open Sans', Arial, sans-serif;
+          font-size: 10px;
+          color: #6c757d;
+        }
+        @top-right {
+          content: "CRV — Orientaciones para el acceso a las comunidades 2026";
+          font-family: 'Open Sans', Arial, sans-serif;
+          font-size: 9px;
+          color: #6c757d;
+        }
+      }
+
+      .toc { display: none; }
+
+      .fase-header {
+        position: relative;
+        margin: 0 0 16px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      thead tr {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
       .fase-card {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
+
       .seccion { page-break-inside: avoid; }
-      .cb      { page-break-inside: avoid; }
+      .cb { page-break-inside: avoid; }
     }
   </style>
 </head>
@@ -276,8 +341,56 @@
   <!-- ENCABEZADO -->
   <div class="header">
     <h1>Orientaciones para el acceso a las comunidades y la legitimación de la Cruz Roja Venezolana en el territorio</h1>
-    <div class="logo-placeholder"><!-- LOGO INSTITUCIONAL AQUÍ --></div>
+    <img class="logo-crv" src="icons/logo_crv_full.png" alt="Sociedad Venezolana de la Cruz Roja — Fundada 1895">
   </div>
+
+  <!-- ÍNDICE -->
+  <nav class="toc" aria-label="Índice de contenidos">
+    <div class="toc-titulo">Índice</div>
+    <ol>
+      <li>
+        <a href="#fase-1">Fase 1: Pre-despliegue</a>
+        <ul class="toc-sub">
+          <li><a href="#f1-1">1. Protocolo de priorización y selección de comunidades</a></li>
+          <li><a href="#f1-2">2. Articulación interna previa al despliegue</a></li>
+          <li><a href="#f1-3">3. Auditoría de datos secundarios y sesgos</a></li>
+          <li><a href="#f1-4">4. Evaluación preliminar de cohesión social</a></li>
+          <li><a href="#f1-5">5. Mapeo de actores clave</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#fase-2">Fase 2: Aproximación y legitimación</a>
+        <ul class="toc-sub">
+          <li><a href="#f2-1">1. Primer contacto: la "pre-visita" de cortesía</a></li>
+          <li><a href="#f2-2">2. Gestión de permisos y notificación a autoridades</a></li>
+          <li><a href="#f2-3">3. Definición del propósito y reconocimiento del saber práctico local</a></li>
+          <li><a href="#f2-4">4. Aplicación obligatoria del Cuestionario de Evaluación Rápida</a></li>
+          <li><a href="#f2-5">5. Planificación de la convocatoria comunitaria</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#fase-3">Fase 3: Inmersión y profundización</a>
+        <ul class="toc-sub">
+          <li><a href="#f3-1">1. Estrategia de muestreo inclusivo y verificación de representatividad</a></li>
+          <li><a href="#f3-2">2. Mapeo de gobernanza, relaciones económicas y poder real</a></li>
+          <li><a href="#f3-3">3. Identificación y gestión de actores de poder informal</a></li>
+          <li><a href="#f3-4">4. Acercamiento al problema, amenazas y análisis de contexto</a></li>
+          <li><a href="#f3-5">5. Herramientas de protección</a></li>
+          <li><a href="#f3-6">6. Gestión de la presencia del liderazgo en espacios grupales</a></li>
+          <li><a href="#f3-7">7. Apropiación y adaptación local de herramientas técnicas</a></li>
+          <li><a href="#f3-8">8. Validación cultural</a></li>
+          <li><a href="#f3-9">9. Protocolo de pausa o salida responsable de la comunidad</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#fase-4">Fase 4: Consolidación</a>
+        <ul class="toc-sub">
+          <li><a href="#f4-1">1. Síntesis y triangulación de inteligencia</a></li>
+          <li><a href="#f4-2">2. Gestión de la tensión entre el mandato del donante y la realidad comunitaria</a></li>
+        </ul>
+      </li>
+    </ol>
+  </nav>
 
   <!-- INTRODUCCIÓN -->
   <div class="fases-intro">
@@ -303,14 +416,17 @@
     </div>
   </div>
 
-  <!-- ======================================================= -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <!-- FASE 1                                                  -->
-  <!-- ======================================================= -->
-  <div class="fase">
-    <div class="fase-header"><h2>Fase 1: Pre-despliegue</h2></div>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="fase" id="fase-1">
+    <div class="fase-header">
+      <h2>Fase 1: Pre-despliegue</h2>
+      <span class="fase-num">5 secciones</span>
+    </div>
     <p class="fase-objetivo"><strong>Objetivo:</strong> Establecer una aproximación segura a la comunidad.</p>
 
-    <div class="seccion">
+    <div class="seccion" id="f1-1">
       <div class="sec-titulo">1. Protocolo de priorización y selección de comunidades</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Antes de iniciar cualquier análisis de datos secundarios, la filial debe justificar formalmente la selección de la comunidad a intervenir. Esta decisión no debe basarse en criterios informales como la facilidad de acceso, la existencia de un contacto previo o el hecho de que la comunidad haya contactado a la filial. La selección debe estar orientada por al menos tres de los siguientes criterios:</div>
       <ul>
@@ -325,7 +441,7 @@
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>Si la comunidad fue seleccionada por el donante o la sede central, verificar que cumple al menos tres de los criterios anteriores antes de avanzar. Si no los cumple, documentar las brechas y comunicarlas formalmente antes de iniciar el despliegue.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f1-2">
       <div class="sec-titulo">2. Articulación interna previa al despliegue</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Antes de iniciar el análisis de datos secundarios, la filial debe verificar internamente qué otras áreas o programas de la CRV tienen o han tenido presencia en esa comunidad. Esta consulta interna evita duplicidades, mensajes contradictorios y diagnósticos fragmentados.</div>
       <p class="sublabel">Preguntas de articulación interna:</p>
@@ -339,7 +455,7 @@
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>Si existen diagnósticos previos de otras áreas, incorporarlos como insumo del análisis de datos secundarios antes de planificar nuevas visitas. Coordinar con las áreas activas para definir cómo se presentará la CRV y cuál será el rol de cada programa durante el despliegue.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f1-3">
       <div class="sec-titulo">3. Auditoría de datos secundarios y sesgos</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Recopilar información sobre la comunidad: noticias, redes sociales, estadísticas oficiales y mapas.</div>
       <div class="cb cb-critico">
@@ -353,7 +469,7 @@
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>Anticipar estrategias para gestionar la desconfianza si hubo malas experiencias previas.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f1-4">
       <div class="sec-titulo">4. Evaluación preliminar de cohesión social</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Como parte del análisis previo, la filial debe construir una estimación de la cohesión social de la comunidad utilizando fuentes secundarias. Este indicador permite anticipar las condiciones de convocatoria, participación y sostenibilidad del proyecto antes de la primera visita.</div>
       <p class="sublabel">Indicadores evaluables de forma remota:</p>
@@ -366,9 +482,7 @@
       <p class="sublabel">Ajuste estratégico según el nivel detectado:</p>
       <div class="tbl-wrap">
         <table>
-          <thead>
-            <tr><th>Nivel de cohesión</th><th>Señales observadas</th><th>Ajuste</th></tr>
-          </thead>
+          <thead><tr><th>Nivel de cohesión</th><th>Señales observadas</th><th>Ajuste</th></tr></thead>
           <tbody>
             <tr>
               <td><strong>Alta</strong></td>
@@ -391,7 +505,7 @@
       <div class="cb cb-critico"><span class="cb-label">Punto crítico: </span>La cohesión social no es estática. Una comunidad con baja cohesión puede fortalecerla a través de la intervención si el proceso de entrada es paciente y bien conducido. Sin embargo, subestimar esta variable al inicio genera expectativas de participación irreales y frustraciones operativas.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f1-5">
       <div class="sec-titulo">5. Mapeo de actores clave</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Identificar —sin que esto implique aún visitar la comunidad— a directores de escuelas, personal médico, líderes religiosos, líderes comunitarios, referentes históricos locales, sabios de la tercera edad, cultores populares o cronistas locales que gocen de respeto y confianza en la zona, así como aquellos actores que, por su capacidad de control o influencia fáctica, incidan en la seguridad y el acceso al territorio. Esta información debe recopilarse de forma remota mediante redes sociales, medios locales, contactos clave u otras fuentes secundarias.</div>
       <div class="cb cb-critico"><span class="cb-label">Punto crítico: </span>Aunque estos actores son el primer punto de contacto, el trato con ellos no equivale necesariamente a reconocerlos como representantes de toda la comunidad. Se recomienda conversar con al menos tres personas sin perfil de líderes antes de cerrar la fase preparatoria.</div>
@@ -400,29 +514,30 @@
     </div>
   </div>
 
-  <!-- ======================================================= -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <!-- FASE 2                                                  -->
-  <!-- ======================================================= -->
-  <div class="fase">
-    <div class="fase-header"><h2>Fase 2: Aproximación y legitimación</h2></div>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="fase" id="fase-2">
+    <div class="fase-header">
+      <h2>Fase 2: Aproximación y legitimación</h2>
+      <span class="fase-num">5 secciones</span>
+    </div>
     <p class="fase-objetivo"><strong>Objetivo:</strong> Obtener el aval del liderazgo local antes de informar el acceso a las autoridades administrativas y/o gubernamentales.</p>
 
-    <div class="seccion">
+    <div class="seccion" id="f2-1">
       <div class="sec-titulo">1. Primer contacto: la "pre-visita" de cortesía</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Realizar una visita con equipo técnico reducido dirigida exclusivamente al liderazgo identificado en la Fase 1. Esta visita debe realizarse en compañía de personal médico, de enfermería, socorro o voluntarios con enfoque en trabajo social y/o comunitario.</div>
       <div class="cb cb-proposito"><span class="cb-label">Propósito: </span>Validar y legitimar formalmente el rol del liderazgo local, presentar el mandato humanitario de la CRV y el objetivo de la intervención, y solicitar la orientación estratégica de los vecinos sobre la mejor vía para el ingreso formal del equipo a la comunidad.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f2-2">
       <div class="sec-titulo">2. Gestión de permisos y notificación a autoridades</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Una vez obtenido el permiso de los líderes, y solo en caso de ser necesario, proceder a tramitar los permisos con las autoridades del Estado mencionados en la Fase 1 (alcaldía, cuerpos de seguridad).</div>
       <div class="cb cb-critico"><span class="cb-label">Punto crítico: </span>Entrar con el aval de la comunidad protege al personal ante las autoridades civiles o militares.</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>El criterio de "solo en caso de ser necesario" requiere una evaluación explícita. Antes de decidir si tramita o no permisos con autoridades, la filial debe considerar los siguientes factores:</div>
       <div class="tbl-wrap">
         <table>
-          <thead>
-            <tr><th>Factor</th><th>Sugiere notificar</th><th>Sugiere no notificar</th></tr>
-          </thead>
+          <thead><tr><th>Factor</th><th>Sugiere notificar</th><th>Sugiere no notificar</th></tr></thead>
           <tbody>
             <tr>
               <td><strong>Escala de la actividad</strong></td>
@@ -456,12 +571,12 @@
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>Algunas filiales mantienen relaciones de trabajo estrechas con alcaldías, especialmente para actividades de gran magnitud. Esta práctica es válida cuando está sustentada en una relación de confianza consolidada y no compromete la neutralidad ni la aceptación comunitaria. En cualquier caso, el contacto con autoridades siempre debe realizarse después del aval del liderazgo comunitario, nunca antes.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f2-3">
       <div class="sec-titulo">3. Definición del propósito y reconocimiento del saber práctico local</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Explicar que la visita busca construir una propuesta de trabajo conjunto basada en el conocimiento y saber práctico de los habitantes. No realizar promesas inmediatas.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f2-4">
       <div class="sec-titulo">4. Aplicación obligatoria del Cuestionario de Evaluación Rápida en Comunidades</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Una vez obtenido el aval del liderazgo comunitario, la filial debe aplicar de forma obligatoria el Cuestionario de Evaluación Rápida en Comunidades antes de avanzar a la Fase 3. Este instrumento permite obtener un diagnóstico preliminar del nivel de severidad humanitaria en cinco dimensiones: Alojamiento y Vivienda, Gestión del Riesgo, Salud y Bienestar, Agua, Saneamiento e Higiene, y Cohesión y Protección Social.</div>
       <p class="sublabel">Instrucciones de aplicación:</p>
@@ -475,7 +590,7 @@
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>El cuestionario puede aplicarse durante la pre-visita de cortesía o en un momento posterior, siempre antes de iniciar las actividades de la Fase 3. La guía de aplicación completa está disponible en el documento "Cuestionario de evaluación rápida en comunidades y Guía de aplicación".</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f2-5">
       <div class="sec-titulo">5. Planificación de la convocatoria comunitaria</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Una vez establecido el vínculo con el liderazgo y definido el propósito del trabajo conjunto, la filial debe planificar de manera explícita cómo se convocará a los miembros de la comunidad para las actividades del proyecto. Por ejemplo, en el área de GRD, una convocatoria sostenida de entre 15 y 30 personas debe considerarse un resultado exitoso. Partir de expectativas más altas puede llevar a evaluaciones de fracaso que no reflejan la realidad del trabajo comunitario en este campo.</div>
       <div class="cb cb-critico"><span class="cb-label">Punto crítico: </span>Delegar la convocatoria exclusivamente en el liderazgo comunitario es la estrategia más común, pero también la más frágil: los líderes convocan a quienes conocen, una práctica que puede excluir sectores de la comunidad y generar una participación desequilibrada.</div>
@@ -490,14 +605,17 @@
     </div>
   </div>
 
-  <!-- ======================================================= -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <!-- FASE 3                                                  -->
-  <!-- ======================================================= -->
-  <div class="fase">
-    <div class="fase-header"><h2>Fase 3: Inmersión y profundización (operación en terreno)</h2></div>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="fase" id="fase-3">
+    <div class="fase-header">
+      <h2>Fase 3: Inmersión y profundización (operación en terreno)</h2>
+      <span class="fase-num">9 secciones</span>
+    </div>
     <p class="fase-objetivo"><strong>Objetivo:</strong> Levantar información en campo para identificar dinámicas comunitarias.</p>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-1">
       <div class="sec-titulo">1. Estrategia de muestreo inclusivo y verificación de representatividad</div>
       <div class="cb cb-accion">
         <span class="cb-label">Acción:</span>
@@ -521,13 +639,13 @@
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>Si se detecta la ausencia de alguno de los grupos anteriores, activar las estrategias de convocatoria alternativas definidas en la Fase 2. Documentar en el informe de campo qué grupos estuvieron ausentes y qué acciones se tomaron para incluirlos.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-2">
       <div class="sec-titulo">2. Mapeo de gobernanza, relaciones económicas y poder real</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Registrar cómo se toman las decisiones (consensos, asambleas o jerarquías), qué redes de intercambio existen y si las mismas están basadas en lazos familiares extendidos, vecinales, amistad o burocracia del Estado.</div>
       <div class="cb cb-herramienta"><span class="cb-label">Herramienta: </span>Reconocer redes de influencia para mapear los flujos de poder y la autoridad moral dentro de la comunidad.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-3">
       <div class="sec-titulo">3. Identificación y gestión de actores de poder informal</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Aunque el mapeo de gobernanza permite identificar la estructura formal del liderazgo, en muchas comunidades existen actores de poder informal —grupos irregulares, líderes políticos sin cargo explícito, redes de control económico o territorial— que no aparecen en los mapeos previos y que pueden incidir directamente sobre la viabilidad del proyecto. La filial debe desarrollar sensibilidad para detectarlos desde la primera visita.</div>
       <p class="sublabel">Señales de alerta:</p>
@@ -549,14 +667,14 @@
       <div class="cb cb-critico"><span class="cb-label">Punto crítico: </span>Si la presencia de estos grupos representa un riesgo para el equipo o la comunidad, debe activarse el protocolo de seguridad de la filial.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-4">
       <div class="sec-titulo">4. Acercamiento al problema, amenazas y análisis de contexto</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Antes de presentar cualquier propuesta, el equipo debe documentar cómo la comunidad resuelve actualmente el problema que la CRV busca enfrentar. Este análisis debe hacerse con base en aquello que la comunidad ya hace bien, preguntar por qué lo hace de ese modo, y solo entonces proponer complementos o mejoras.</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Identificar los eventos naturales, económicos y socioculturales que se repiten en el tiempo.</div>
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>Ser conscientes de la historia y los ciclos estacionales de la comunidad. Usar la memoria de la comunidad para entender los peligros actuales.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-5">
       <div class="sec-titulo">5. Herramientas de protección</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Hacer entrevistas cara a cara con informantes clave para temas de migración, violencia de género, violencia armada o temas delicados.</div>
       <div class="cb cb-restriccion"><span class="cb-label">Restricción: </span>Prohibido usar grupos focales para estos temas o entrevistas sin la debida privacidad. El riesgo de revictimización o delación es alto.</div>
@@ -564,7 +682,7 @@
       <div class="cb cb-herramienta"><span class="cb-label">Herramienta: </span>Mapeo de vulnerabilidades (dónde viven las personas que ameritan los servicios de protección).</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-6">
       <div class="sec-titulo">6. Gestión de la presencia del liderazgo en espacios grupales</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>La filial debe evaluar, en cada actividad grupal, si la presencia de líderes comunitarios o autoridades locales está favoreciendo o inhibiendo la participación libre del resto de los asistentes. No todos los temas requieren la ausencia del liderazgo, pero hay situaciones donde su presencia genera un ambiente de autocensura que reduce tanto la calidad de la información obtenida como la participación efectiva.</div>
       <p class="sublabel">Señales de alerta:</p>
@@ -583,7 +701,7 @@
       <div class="cb cb-critico"><span class="cb-label">Punto crítico: </span>El silencio en presencia del liderazgo no siempre es visible. A veces el grupo parece participativo, pero los temas más relevantes nunca se abordan porque existe un acuerdo tácito sobre lo que "puede" decirse. El equipo facilitador debe distinguir entre participación real y participación performativa.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-7">
       <div class="sec-titulo">7. Apropiación y adaptación local de herramientas técnicas</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Cuando el proyecto contempla la implementación de herramientas técnicas —sistemas de alerta temprana, instrumentos de medición, protocolos de respuesta u otras tecnologías de gestión del riesgo— la filial debe verificar que estas herramientas son comprensibles, operables y sostenibles en el contexto específico de la comunidad. Las herramientas diseñadas en contextos externos tienden a llegar al terreno sin adaptación, generando comprensión superficial y abandono progresivo una vez que el equipo de la filial se retira.</div>
       <p class="sublabel">Criterios de apropiación:</p>
@@ -602,13 +720,13 @@
       <div class="cb cb-critico"><span class="cb-label">Punto crítico: </span>Una herramienta técnica instalada pero no apropiada es un indicador de fracaso operativo real. El riesgo es mayor con sistemas complejos —como los SAT— que requieren coordinación entre múltiples actores, mantenimiento continuo y comprensión de cadenas de alerta diseñadas frecuentemente fuera del contexto local.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-8">
       <div class="sec-titulo">8. Validación cultural</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Entrevistar a personas que habiten en distintos sectores y que representen diversas funciones económicas o profesionales, que pertenezcan a diferentes grupos de edad tanto hombres como mujeres.</div>
       <div class="cb cb-estrategia"><span class="cb-label">Estrategia de campo: </span>Anticipar conflictos con el objetivo de evitar que el proyecto sea bloqueado por un malentendido cultural (ej. proponer reuniones en días sagrados o usar terminología de salud que choque con creencias espirituales). La validación cultural es especialmente útil en comunidades indígenas y en proyectos relacionados con SSR.</div>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f3-9">
       <div class="sec-titulo">9. Protocolo de pausa o salida responsable de la comunidad</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>La filial debe establecer, antes de iniciar el trabajo en terreno, cuáles son los umbrales mínimos de viabilidad operativa. Si estos umbrales no se cumplen de forma sostenida durante la implementación, debe evaluarse formalmente si corresponde pausar, redirigir o cerrar el trabajo en esa comunidad.</div>
       <p class="sublabel">Criterios para activar la evaluación:</p>
@@ -629,14 +747,17 @@
     </div>
   </div>
 
-  <!-- ======================================================= -->
+  <!-- ═══════════════════════════════════════════════════════ -->
   <!-- FASE 4                                                  -->
-  <!-- ======================================================= -->
-  <div class="fase">
-    <div class="fase-header"><h2>Fase 4: Consolidación</h2></div>
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="fase" id="fase-4">
+    <div class="fase-header">
+      <h2>Fase 4: Consolidación</h2>
+      <span class="fase-num">2 secciones</span>
+    </div>
     <p class="fase-objetivo"><strong>Objetivo:</strong> Sistematizar los hallazgos para la toma de decisiones presupuestarias, técnicas y de seguridad de la organización.</p>
 
-    <div class="seccion">
+    <div class="seccion" id="f4-1">
       <div class="sec-titulo">1. Síntesis y triangulación de inteligencia</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Antes de escribir el informe final, el equipo debe triangular la información obtenida para asegurar que cada hallazgo esté validado por al menos 3 fuentes. Cuando existe contradicción entre estas fuentes, el informe debe documentarla explícitamente sin pretender resolverla a favor de una de ellas.</div>
       <div class="cb cb-estrategia"><span class="cb-label">Lenguaje: </span>Transformar los hallazgos en afirmaciones positivas y acciones en concreto. En lugar de limitarse a describir carencias, las conclusiones deben establecer vínculos positivos entre los problemas detectados y los recursos potenciales, rescatando siempre las ideas originales de la comunidad para que esta se reconozca en el informe. Por ejemplo, en lugar de concluir que "la comunidad carece de liderazgo en el área de salud", el informe debe afirmar que "Existe una valiosa oportunidad para fortalecer al comité local de salud y conectarlo con el ambulatorio más cercano".</div>
@@ -650,7 +771,7 @@
       </ul>
     </div>
 
-    <div class="seccion">
+    <div class="seccion" id="f4-2">
       <div class="sec-titulo">2. Gestión de la tensión entre el mandato del donante y la realidad comunitaria</div>
       <div class="cb cb-accion"><span class="cb-label">Acción: </span>Durante la síntesis de hallazgos, la filial debe documentar de manera explícita cualquier discrepancia entre los objetivos y actividades predefinidos por el proyecto y las necesidades reales identificadas en la comunidad. Esta documentación es la base para fundamentar ajustes ante el donante y para garantizar que la intervención responda efectivamente a la realidad en terreno.</div>
       <p class="sublabel">Marco para documentar la discrepancia:</p>
