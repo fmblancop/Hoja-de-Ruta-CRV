@@ -317,12 +317,45 @@
 
       .toc { display: none; }
 
+      .doc { padding: 0; }
+
+      .header {
+        position: relative;
+        margin-bottom: 20px;
+        padding-bottom: 14px;
+      }
+
       .fase-header {
         position: relative;
         margin: 0 0 16px;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        page-break-after: avoid;
       }
+
+      .fase {
+        margin-bottom: 20px;
+        page-break-before: always;
+      }
+
+      .fase:first-of-type { page-break-before: avoid; }
+
+      .fases-intro { page-break-after: always; }
+
+      .seccion {
+        page-break-inside: avoid;
+        margin-bottom: 16px;
+      }
+
+      .cb {
+        page-break-inside: avoid;
+      }
+
+      .sec-titulo { page-break-after: avoid; }
+
+      .sublabel { page-break-after: avoid; }
+
+      .fase-objetivo { page-break-after: avoid; }
 
       thead tr {
         -webkit-print-color-adjust: exact;
@@ -332,10 +365,18 @@
       .fase-card {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        page-break-inside: avoid;
       }
 
-      .seccion { page-break-inside: avoid; }
-      .cb { page-break-inside: avoid; }
+      .cb-accion, .cb-critico, .cb-estrategia,
+      .cb-herramienta, .cb-restriccion, .cb-proposito {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      table { page-break-inside: avoid; }
+
+      p, li { orphans: 3; widows: 3; }
     }
   </style>
 </head>
