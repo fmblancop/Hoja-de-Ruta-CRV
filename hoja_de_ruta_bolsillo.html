@@ -1456,7 +1456,10 @@ function showPhase(n, btn) {
   document.querySelectorAll('.phase').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('p' + n).classList.add('active');
-  if (btn) btn.classList.add('active');
+  if (btn) {
+    btn.classList.add('active');
+    btn.scrollIntoView({inline: 'center', block: 'nearest', behavior: 'smooth'});
+  }
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
