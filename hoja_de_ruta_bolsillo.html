@@ -38,11 +38,8 @@ header{background:var(--corp);color:#fff;padding:14px 16px 10px;position:sticky;
 .tabs-wrap{position:relative}
 .tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .tabs::-webkit-scrollbar{display:none}
-.tabs-wrap::after{content:"";position:absolute;top:0;right:0;bottom:2px;width:34px;background:linear-gradient(to right, transparent, var(--corp) 75%);pointer-events:none;border-radius:0 8px 8px 0}
-.tabs-wrap.scrolled-end::after{opacity:0;transition:opacity .25s}
-.tabs-hint{position:absolute;right:2px;top:50%;transform:translateY(-50%);color:#fff;font-size:15px;font-weight:700;pointer-events:none;animation:tabs-hint-bounce 1.4s ease-in-out infinite;text-shadow:0 0 4px rgba(0,0,0,.35);z-index:1}
-.tabs-hint.hide{display:none}
-@keyframes tabs-hint-bounce{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(4px)}}
+.tabs-wrap::after{content:"";position:absolute;top:0;right:0;bottom:2px;width:28px;background:linear-gradient(to right, transparent, var(--corp));pointer-events:none;opacity:.85;transition:opacity .25s}
+.tabs-wrap.scrolled-end::after{opacity:0}
 .tab{background:rgba(255,255,255,.22);color:#fff;border:none;border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer;font-family:var(--font);transition:all .2s;-webkit-tap-highlight-color:transparent}
 .tab.active{background:#fff;color:var(--corp)}
 /* PHASE */
@@ -246,7 +243,6 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
       <button class="tab" onclick="showPhase(5,this)">Preguntas</button>
       <button class="tab" onclick="showPhase(6,this)">Árbol</button>
     </div>
-    <span class="tabs-hint" id="tabs-hint">▸</span>
   </div>
 </header>
 
@@ -1440,32 +1436,19 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
 <div class="footer">Cruz Roja Venezolana · PMER · Hoja de Ruta de Bolsillo 2026 · Para uso en terreno</div>
 
 <script>
-/* Indicador de scroll horizontal en pestañas */
+/* Indicador de scroll horizontal en pestañas: degradado que desaparece al llegar al final */
 (function() {
   const wrap = document.getElementById('tabs-wrap');
   const scroll = document.getElementById('tabs-scroll');
-  const hint = document.getElementById('tabs-hint');
-  if (!wrap || !scroll || !hint) return;
+  if (!wrap || !scroll) return;
 
   function checkEnd() {
+    const hasOverflow = scroll.scrollWidth > scroll.clientWidth + 8;
     const atEnd = scroll.scrollWidth - scroll.scrollLeft - scroll.clientWidth < 8;
-    wrap.classList.toggle('scrolled-end', atEnd);
-  }
-  function dismissHint() {
-    hint.classList.add('hide');
-    try { localStorage.setItem('crv-tabs-hint-seen', '1'); } catch(e) {}
-    scroll.removeEventListener('scroll', dismissHint);
-    scroll.removeEventListener('touchstart', dismissHint);
-  }
-  let seen = false;
-  try { seen = localStorage.getItem('crv-tabs-hint-seen') === '1'; } catch(e) {}
-  if (seen || scroll.scrollWidth <= scroll.clientWidth + 8) {
-    hint.classList.add('hide');
-  } else {
-    scroll.addEventListener('scroll', dismissHint, {passive:true});
-    scroll.addEventListener('touchstart', dismissHint, {passive:true});
+    wrap.classList.toggle('scrolled-end', !hasOverflow || atEnd);
   }
   scroll.addEventListener('scroll', checkEnd, {passive:true});
+  window.addEventListener('resize', checkEnd);
   checkEnd();
 })();
 
