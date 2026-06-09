@@ -6,17 +6,17 @@ Esta hoja de ruta establece puntos críticos, protocolos de seguridad, herramien
 
 Los datos que se produzcan deben nacer de un acuerdo entre la filial y la comunidad. En ese sentido, los instrumentos de medición que se empleen son herramientas de partida para facilitar el diálogo.
 
-#### **Fase 1: Análisis previo a la 1.ª visita**
+#### **Fase 1: Pre-despliegue**
 
 La filial investiga sobre la comunidad para obtener un perfil preliminar sobre actividades económicas, dinámicas sociales y patrones culturales, con el ánimo de evitar rechazos y reducir errores de aproximación.
-
-#### **Fase 3: Inmersión y profundización**
-
-Etapa de operación en terreno donde se levanta información sobre dinámicas sociales mediante herramientas de trabajo comunitario y validación cultural con autoridades y líderes.
 
 #### **Fase 2: Aproximación y legitimación**
 
 Primer contacto físico orientado a obtener el aval operativo de los líderes comunitarios e información sobre los modos en que las comunidades se organizan para cumplir sus funciones sociales y económicas.
+
+#### **Fase 3: Inmersión y profundización**
+
+Etapa de operación en terreno donde se levanta información sobre dinámicas sociales mediante herramientas de trabajo comunitario y validación cultural con autoridades y líderes.
 
 #### **Fase 4: Consolidación**
 
