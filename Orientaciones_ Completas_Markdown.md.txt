@@ -132,7 +132,43 @@ recopilarse de forma remota mediante redes sociales, medios locales, contactos c
 
 **Estrategia de campo:** El cuestionario puede aplicarse durante la pre-visita de cortesía o en un momento posterior, siempre antes de iniciar las actividades de la Fase 3. La guía de aplicación completa está disponible en el documento "Cuestionario de evaluación rápida en comunidades y Guía de aplicación".
 
-### **3. Planificación de la convocatoria comunitaria**
+### **3. Interpretación del diagnóstico y orientación del tipo de intervención**
+
+**Acción:** Una vez procesados los resultados del Cuestionario de Evaluación Rápida, la filial debe determinar el nivel de severidad de la comunidad y evaluar si cuenta con la capacidad y los recursos para responder a ese perfil. A continuación se detallan las intervenciones sugeridas para cada perfil:
+
+#### **Severidad Crítica (Comunidades de Baja Articulación Social y Exclusión Sanitaria)**
+
+Para estas comunidades, que presentan múltiples déficits estructurales y bajo capital social, se recomienda una respuesta integral y urgente:
+
+- **Agua y Saneamiento:** Instalación rápida de infraestructura básica para mitigar problemas de acceso y calidad del agua, y resolver la carencia de baños o el uso de letrinas fuera del hogar. •
+- **Cohesión Social:** Estimular y consolidar el capital social a través de la formación o reactivación de organizaciones (deportivas, culturales, religiosas) que permitan una respuesta colectiva ante problemas de salud y riesgo. •
+- **Gestión del Riesgo:** Fortalecer la preparación comunitaria mediante la identificación de amenazas, capacitación en primeros auxilios, simulacros de evacuación y coordinación con entes como Bomberos y Defensa Civil. •
+
+#### **Severidad Alta (Zonas de Vacío Asistencial)**
+
+En estas comunidades, caracterizadas por una deficiencia grave de servicios de salud, las acciones deben ser de intervención prioritaria:
+
+- **Salud Primaria y Especializada:** Despliegue de personal sanitario (médicos, enfermeras), unidades móviles y telemedicina. •
+- **Soporte Psicosocial:** Incorporar redes de autoayuda y asegurar el acceso a servicios de salud mental. •
+- **Sistemas de Referencia:** Establecer sistemas logísticos y de comunicación operativos para el traslado de pacientes, incluso para servicios básicos como el control prenatal. •
+
+#### **Severidad Moderada (Núcleos de Fortaleza Social y Sanitaria)**
+
+Dado que estas comunidades ya cuentan con fortalezas activas, las intervenciones deben centrarse en el mantenimiento y preservación de lo existente:
+
+- **Mantenimiento de Servicios:** Garantizar que las obras y servicios existentes no se deterioren con el tiempo. •
+- **Redes Comunitarias:** Reforzar continuamente las redes sociales y el capital social activo. •
+- **Formación Continua:** Asegurar la actualización permanente del personal sanitario para preservar la capacidad de atención actual. •
+
+#### **Severidad Baja (Áreas de Gestión de Riesgo y Sanitaria Integrada)**
+
+Estas comunidades presentan el mejor estado de bienestar relativo, por lo que su rol es estratégico para el entorno:
+
+- **Centros de Referencia:** Consolidarlas como plataformas de aprendizaje y centros de referencia para comunidades aledañas con mayor vulnerabilidad. •
+- **Optimización:** Intervenir para mantener y optimizar los servicios de salud y de gestión de riesgos que ya funcionan de manera integrada. •
+
+
+### **4. Planificación de la convocatoria comunitaria**
 
 **Acción:** Una vez establecido el vínculo con el liderazgo y definido el propósito del trabajo conjunto, la filial debe planificar de manera explícita cómo se convocará a los miembros de la comunidad para las actividades del proyecto. Por ejemplo, en el área de GRD, una convocatoria sostenida de entre 15 y 30 personas debe considerarse un resultado exitoso. Partir de expectativas más altas puede llevar a evaluaciones de fracaso que no reflejan la realidad del trabajo comunitario en este campo.
 
@@ -147,7 +183,7 @@ recopilarse de forma remota mediante redes sociales, medios locales, contactos c
 
 **Estrategia de campo:** Si la participación cae por debajo del umbral mínimo acordado en dos o más actividades consecutivas, la filial debe evaluar si el problema es de convocatoria o si indica una limitación estructural de la comunidad como sitio de intervención. Esta evaluación debe documentarse antes de continuar.
 
-### **4. Gestión de permisos y notificación a autoridades**
+### **5. Gestión de permisos y notificación a autoridades**
 
 **Acción:** Una vez obtenido el permiso de los líderes, y solo en caso de ser necesario, proceder a tramitar los permisos con las autoridades del Estado mencionados en la Fase 1 (alcaldía, cuerpos de seguridad).
 
