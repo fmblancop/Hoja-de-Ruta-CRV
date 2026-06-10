@@ -287,7 +287,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
         <p style="font-size:13px;color:#333;margin:0;line-height:1.55">A diferencia de Vicos, buscamos el aval explícito del liderazgo y la comunidad antes de actuar. La legitimidad nace de la escucha, no de definiciones externas de "progreso".</p>
       </div>
       <div style="background:#EBF3FA;border-left:4px solid #1C4269;border-radius:0 8px 8px 0;padding:10px 12px">
-        <p style="font-size:11px;font-weight:700;color:#1C4269;margin:0 0 4px;text-transform:uppercase;letter-spacing:.5px">F1 · Cuestionario de Evaluación Rápida</p>
+        <p style="font-size:11px;font-weight:700;color:#1C4269;margin:0 0 4px;text-transform:uppercase;letter-spacing:.5px">F2 · Cuestionario de Evaluación Rápida</p>
         <p style="font-size:13px;color:#333;margin:0;line-height:1.55">Sin datos técnicos que identifiquen a la población más vulnerable, las "buenas intenciones" desvían la ayuda hacia quienes menos la necesitan.</p>
       </div>
       <div style="background:#EBF3FA;border-left:4px solid #1C4269;border-radius:0 8px 8px 0;padding:10px 12px">
@@ -463,7 +463,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
       <div class="ea-card ea-card-ok">
         <p class="ea-label-ok">● Acierto</p>
         <p class="ea-action">Si el proyecto cambia de rumbo, díselo primero a la comunidad.</p>
-        <p class="ea-effect">Cuando los hallazgos de terreno se alejan de lo que el donante exigía, documenta la discrepancia con evidencia de al menos tres fuentes y propón un ajuste concreto. Esa documentación es lo que te permite negociar sin traicionar lo que encontraste en campo.</p>
+        <p class="ea-effect">Cuando los hallazgos de terreno se alejan de lo que el plan original exigía, documenta la discrepancia con evidencia de al menos tres fuentes y propón un ajuste concreto. Esa documentación es lo que te permite negociar sin traicionar lo que encontraste en campo.</p>
         <div class="ea-note">Las conclusiones del informe deben poder ser leídas por la comunidad. Si no las reconocen como suyas, el riesgo de rechazo se multiplica (ver F4, Paso 1).</div>
       </div>
       <div class="ea-card ea-card-err">
@@ -520,14 +520,15 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
       <div class="blk blk-accion open">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
         <div class="blk-body">
-          <p>La filial debe justificar formalmente la selección usando <strong>al menos 3 de estos 6 criterios</strong>:</p>
+          <p>La filial debe justificar formalmente la selección usando <strong>al menos 3 de estos 7 criterios</strong>:</p>
           <div class="crit-grid">
             <div class="crit"><strong>1. Vulnerabilidad documentada</strong>Datos, reportes o historia de eventos confirman vulnerabilidad.</div>
-            <div class="crit"><strong>2. Historia de trabajo previo</strong>La filial o CRV ha tenido presencia anterior.</div>
-            <div class="crit"><strong>3. Capacidad operativa</strong>La filial tiene recursos humanos, técnicos y logísticos mínimos.</div>
-            <div class="crit"><strong>4. Cohesión social</strong>Indicios de organización comunitaria activa e identificable.</div>
-            <div class="crit"><strong>5. Pertinencia con el mandato</strong>El problema está dentro del mandato de la filial.</div>
-            <div class="crit"><strong>6. Desastre reciente</strong>Un evento reciente aumenta disposición a participar.</div>
+            <div class="crit"><strong>2. Distancia</strong>Ubicada preferentemente en un radio de 10 km de la filial.</div>
+            <div class="crit"><strong>3. Historia de trabajo previo</strong>La filial o CRV ha tenido presencia anterior.</div>
+            <div class="crit"><strong>4. Capacidad operativa</strong>La filial tiene recursos humanos, técnicos y logísticos mínimos.</div>
+            <div class="crit"><strong>5. Cohesión social</strong>Indicios de organización comunitaria activa e identificable.</div>
+            <div class="crit"><strong>6. Pertinencia con el mandato</strong>El problema está dentro del mandato de la filial.</div>
+            <div class="crit"><strong>7. Desastre reciente</strong>Un evento reciente aumenta disposición a participar.</div>
           </div>
         </div>
       </div>
@@ -537,7 +538,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
           <div class="branches">
             <button class="br-btn" onclick="toggleBranch(this,'br1-1a')"><span>✅</span><span>Cumple 3 o más criterios</span></button>
             <div class="br-ans" id="br1-1a">Selección justificada. Continúa con el Paso 2: Articulación interna.</div>
-            <button class="br-btn" onclick="toggleBranch(this,'br1-1b')"><span>⚠️</span><span>Fue seleccionada por donante o sede central</span></button>
+            <button class="br-btn" onclick="toggleBranch(this,'br1-1b')"><span>⚠️</span><span>Fue seleccionada por una instancia externa (sede, cooperante, autoridades)</span></button>
             <div class="br-ans warn" id="br1-1b">Verifica que cumpla al menos 3 criterios. Si no, documenta la discrepancia y comunícala a la sede con evidencia.</div>
             <button class="br-btn" onclick="toggleBranch(this,'br1-1c')"><span>❌</span><span>Solo acceso fácil o redes de contacto</span></button>
             <div class="br-ans danger" id="br1-1c">Esto introduce sesgo sistemático: se trabaja siempre con las mismas comunidades y se excluyen las más vulnerables. Escala la decisión a la sede.</div>
@@ -735,71 +736,8 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="card" id="c2-2">
     <div class="card-hdr" onclick="toggleCard('c2-2')">
       <div class="card-num">2</div>
-      <div class="card-title">Gestión de permisos y notificación a autoridades</div>
-      <div class="card-check" onclick="toggleCheck(event,'c2-2')"></div>
-      <div class="card-arr">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="blk blk-accion open">
-        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
-        <div class="blk-body">
-          <p>Una vez obtenido el permiso de los líderes, y <strong>solo en caso de ser necesario</strong>, proceder a tramitar los permisos con autoridades civiles o militares.</p>
-          <p style="margin-top:8px"><strong>Para evaluar si es necesario notificar a autoridades, considera:</strong></p>
-          <ul class="lst" style="margin-top:6px">
-            <li>¿Hay requisitos legales obligatorios en esa jurisdicción?</li>
-            <li>¿La actividad implica trabajo con grupos vulnerables que requiere habilitación?</li>
-            <li>¿La relación con las autoridades podría mejorar la aceptación del proyecto?</li>
-            <li>¿Las autoridades tienen antecedentes de interferir en proyectos similares?</li>
-          </ul>
-        </div>
-      </div>
-      <div class="blk blk-rama">
-        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Cuándo y cómo notificar a autoridades?</span><span>▾</span></div>
-        <div class="blk-body hide">
-          <div class="branches">
-            <button class="br-btn" onclick="toggleBranch(this,'br2-2a')"><span>✅</span><span>Tengo el aval comunitario previo</span></button>
-            <div class="br-ans" id="br2-2a">Puedes notificar a las autoridades con confianza. El aval de la comunidad protege al personal ante cualquier cuestionamiento civil o militar.</div>
-            <button class="br-btn" onclick="toggleBranch(this,'br2-2b')"><span>⚠️</span><span>La filial ya tiene relación con la alcaldía</span></button>
-            <div class="br-ans warn" id="br2-2b">Las relaciones institucionales previas facilitan el trabajo, pero no reemplazan el aval de la comunidad. Gestiona los permisos, pero no los presentes como la puerta de entrada a la comunidad.</div>
-            <button class="br-btn" onclick="toggleBranch(this,'br2-2c')"><span>❌</span><span>No tengo aún el aval comunitario</span></button>
-            <div class="br-ans danger" id="br2-2c">NO notifiques a autoridades antes de tener el aval de la comunidad. Hacerlo puede comprometer la aceptación del proyecto y asociar a la CRV con el poder político o militar.</div>
-          </div>
-        </div>
-      </div>
-      <div class="blk blk-critico">
-        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
-        <div class="blk-body hide">Notificar a las autoridades sin el aval previo de la comunidad puede comprometer la aceptación del proyecto y generar la percepción de que la CRV opera como brazo del Estado. El orden correcto es: comunidad primero, autoridades después.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" id="c2-3">
-    <div class="card-hdr" onclick="toggleCard('c2-3')">
-      <div class="card-num">3</div>
-      <div class="card-title">Definición del propósito y reconocimiento del saber práctico local</div>
-      <div class="card-check" onclick="toggleCheck(event,'c2-3')"></div>
-      <div class="card-arr">▼</div>
-    </div>
-    <div class="card-body">
-      <div class="blk blk-accion open">
-        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
-        <div class="blk-body">
-          <p>Explicar que la visita busca <strong>construir una propuesta de trabajo conjunto</strong> basada en el conocimiento y saber práctico local — no imponer una solución predefinida.</p>
-          <ul class="lst" style="margin-top:8px">
-            <li>Usa un lenguaje sencillo, sin términos técnicos.</li>
-            <li>Reconoce públicamente lo que la comunidad ya hace bien.</li>
-            <li>Presenta a la CRV como colaboradora, no como autoridad.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" id="c2-4">
-    <div class="card-hdr" onclick="toggleCard('c2-4')">
-      <div class="card-num">4</div>
       <div class="card-title">Aplicación obligatoria del Cuestionario de Evaluación Rápida <span class="badge">OBLIGATORIO</span></div>
-      <div class="card-check" onclick="toggleCheck(event,'c2-4')"></div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-2')"></div>
       <div class="card-arr">▼</div>
     </div>
     <div class="card-body">
@@ -811,23 +749,95 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
             <li>Se aplica <strong>un solo cuestionario por comunidad</strong>.</li>
             <li>Registrar en la app <strong>KoboToolbox</strong> (funciona sin internet — descarga el formulario antes de salir al campo y sincroniza cuando haya señal), incluyendo obligatoriamente: estado, municipio, parroquia, comunidad.</li>
           </ul>
-          <a class="link-btn" href="https://ee.ifrc.org/x/M28RoiY6" target="_blank">📝 Abrir cuestionario</a>
+          <a class="link-btn" href="https://ee.ifrc.org/x/9S4N3Aec" target="_blank">📝 Abrir cuestionario</a>
         </div>
       </div>
       <div class="blk blk-rama">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Cuándo aplicar el cuestionario?</span><span>▾</span></div>
         <div class="blk-body hide">
           <div class="branches">
-            <button class="br-btn" onclick="toggleBranch(this,'br2-4a')"><span>✅</span><span>Durante la pre-visita de cortesía (Paso 1)</span></button>
-            <div class="br-ans" id="br2-4a">Ideal si el liderazgo ya está presente y hay tiempo suficiente. La app KoboToolbox funciona sin internet: descarga el formulario antes de salir y sincroniza al tener señal.</div>
-            <button class="br-btn" onclick="toggleBranch(this,'br2-4b')"><span>🔄</span><span>En un momento posterior, antes del trabajo en terreno</span></button>
-            <div class="br-ans warn" id="br2-4b">También válido, siempre que sea antes de planificar las actividades. El cuestionario orienta qué hacer, no puede aplicarse después de haber iniciado.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-2a')"><span>✅</span><span>Durante la pre-visita de cortesía (Paso 1)</span></button>
+            <div class="br-ans" id="br2-2a">Ideal si el liderazgo ya está presente y hay tiempo suficiente. La app KoboToolbox funciona sin internet: descarga el formulario antes de salir y sincroniza al tener señal.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-2b')"><span>🔄</span><span>En un momento posterior, antes del trabajo en terreno</span></button>
+            <div class="br-ans warn" id="br2-2b">También válido, siempre que sea antes de planificar las actividades. El cuestionario orienta qué hacer, no puede aplicarse después de haber iniciado.</div>
           </div>
         </div>
       </div>
       <div class="blk blk-critico">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
-        <div class="blk-body hide">La aplicación del cuestionario <strong>no es opcional</strong>. Su resultado orienta la planificación de las actividades de la filial. Sin esta información, las decisiones operativas carecen de fundamento técnico.</div>
+        <div class="blk-body hide">La aplicación del cuestionario <strong>no es opcional</strong>. Su resultado orienta la planificación de la Fase 3 al determinar el nivel de severidad de la comunidad y las dimensiones que requieren mayor atención. Sin esta información, las decisiones operativas carecen de fundamento técnico.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c2-3">
+    <div class="card-hdr" onclick="toggleCard('c2-3')">
+      <div class="card-num">3</div>
+      <div class="card-title">Interpretación del diagnóstico y orientación de la intervención</div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-3')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">Con los resultados del Cuestionario de Evaluación Rápida, determinar el <strong>nivel de severidad</strong> de la comunidad y evaluar si la filial cuenta con la capacidad y los recursos para responder a ese perfil.</div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Qué nivel de severidad arrojó el cuestionario?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br2-3a')"><span>🔴</span><span>Crítica — baja articulación social y exclusión sanitaria</span></button>
+            <div class="br-ans danger" id="br2-3a">Respuesta integral y urgente: instalación rápida de infraestructura básica de agua y saneamiento; estimular la cohesión social formando o reactivando organizaciones (deportivas, culturales, religiosas); y fortalecer la gestión del riesgo con identificación de amenazas, primeros auxilios, simulacros y coordinación con Bomberos y Defensa Civil.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-3b')"><span>🟠</span><span>Alta — zona de vacío asistencial</span></button>
+            <div class="br-ans warn" id="br2-3b">Intervención prioritaria en salud: despliegue de personal sanitario (médicos, enfermeras), unidades móviles y telemedicina; redes de autoayuda y acceso a salud mental; y sistemas de referencia operativos para el traslado de pacientes, incluso para servicios básicos como el control prenatal.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-3c')"><span>🟡</span><span>Moderada — núcleo de fortaleza social y sanitaria</span></button>
+            <div class="br-ans" id="br2-3c">Mantener y preservar lo existente: garantizar que obras y servicios no se deterioren, reforzar continuamente las redes comunitarias y el capital social activo, y asegurar la formación continua del personal sanitario.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-3d')"><span>🟢</span><span>Baja — gestión de riesgo y sanitaria integrada</span></button>
+            <div class="br-ans" id="br2-3d">Rol estratégico para el entorno: consolidarla como plataforma de aprendizaje y centro de referencia para comunidades aledañas más vulnerables, y optimizar los servicios de salud y gestión de riesgos que ya funcionan de manera integrada.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-accion">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📨 Notificación a Sede Central: Formulario de inicio</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <p>Antes de avanzar a la Fase 3, completar el <strong>Formulario de inicio de exploración comunitaria</strong> en la plataforma Kobo. Notifica formalmente a la Sede Central el trabajo que la filial planea iniciar y construye memoria institucional sobre las decisiones previas al despliegue.</p>
+          <p style="margin-top:8px">Es un paso administrativo, no un compromiso operativo: complétalo aunque aún no esté definido con precisión el alcance de la intervención.</p>
+          <a class="link-btn" href="https://ee.ifrc.org/x/xsLJqlzG" target="_blank">📨 Abrir formulario</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="c2-4">
+    <div class="card-hdr" onclick="toggleCard('c2-4')">
+      <div class="card-num">4</div>
+      <div class="card-title">Planificación de la convocatoria comunitaria</div>
+      <div class="card-check" onclick="toggleCheck(event,'c2-4')"></div>
+      <div class="card-arr">▼</div>
+    </div>
+    <div class="card-body">
+      <div class="blk blk-accion open">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
+        <div class="blk-body">Una vez establecido el vínculo con el liderazgo y definido el propósito, planificar juntos cómo convocar a la comunidad. En GRD, una convocatoria sostenida de entre 15 y 30 personas es un resultado exitoso. El riesgo: delegar todo en el líder puede reducir la diversidad de participantes.</div>
+      </div>
+      <div class="blk blk-rama">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 Estrategias de convocatoria — ¿cuál usar?</span><span>▾</span></div>
+        <div class="blk-body hide">
+          <div class="branches">
+            <button class="br-btn" onclick="toggleBranch(this,'br2-4a')"><span>👥</span><span>Integración programática</span></button>
+            <div class="br-ans" id="br2-4a">Coordinar con otras áreas o programas de la filial que ya tengan presencia en la comunidad para ampliar la convocatoria.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-4b')"><span>🔗</span><span>Redes secundarias</span></button>
+            <div class="br-ans" id="br2-4b">Identificar, junto al liderazgo, personas con capacidad de convocatoria en sectores específicos que el líder no cubre normalmente.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-4c')"><span>📍</span><span>Momentos y espacios de alta concurrencia</span></button>
+            <div class="br-ans" id="br2-4c">Planificar actividades en horarios y lugares donde la comunidad ya se congrega naturalmente (mercados, salidas de escuela, misas, asambleas).</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-4d')"><span>🎯</span><span>Atractivo de la propuesta de acción</span></button>
+            <div class="br-ans" id="br2-4d">Asegurar que la primera actividad ofrezca un valor tangible e inmediato para los participantes. Esto motiva la asistencia y la recomendación.</div>
+          </div>
+        </div>
+      </div>
+      <div class="blk blk-critico">
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
+        <div class="blk-body hide">Si la participación cae por debajo del umbral mínimo acordado en dos o más actividades consecutivas, revisar la estrategia de convocatoria antes de continuar.</div>
       </div>
     </div>
   </div>
@@ -835,33 +845,40 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="card" id="c2-5">
     <div class="card-hdr" onclick="toggleCard('c2-5')">
       <div class="card-num">5</div>
-      <div class="card-title">Planificación de la convocatoria comunitaria</div>
+      <div class="card-title">Gestión de permisos y notificación a autoridades</div>
       <div class="card-check" onclick="toggleCheck(event,'c2-5')"></div>
       <div class="card-arr">▼</div>
     </div>
     <div class="card-body">
       <div class="blk blk-accion open">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Acción</span><span>▾</span></div>
-        <div class="blk-body">Una vez establecido el vínculo con el liderazgo y definido el propósito, planificar juntos cómo convocar a la comunidad. El riesgo: delegar todo en el líder puede reducir la diversidad de participantes.</div>
+        <div class="blk-body">
+          <p>Una vez obtenido el permiso de los líderes, y <strong>solo en caso de ser necesario</strong>, proceder a tramitar los permisos con autoridades civiles o militares.</p>
+          <p style="margin-top:8px"><strong>Para evaluar si es necesario notificar a autoridades, considera:</strong></p>
+          <ul class="lst" style="margin-top:6px">
+            <li>¿Hay requisitos legales obligatorios en esa jurisdicción?</li>
+            <li>¿La actividad implica trabajo con grupos vulnerables que requiere habilitación?</li>
+            <li>¿La relación con las autoridades podría mejorar la aceptación de la iniciativa?</li>
+            <li>¿Las autoridades tienen antecedentes de interferir en iniciativas anteriores?</li>
+          </ul>
+        </div>
       </div>
       <div class="blk blk-rama">
-        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 Estrategias de convocatoria — ¿cuál usar?</span><span>▾</span></div>
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿Cuándo y cómo notificar a autoridades?</span><span>▾</span></div>
         <div class="blk-body hide">
           <div class="branches">
-            <button class="br-btn" onclick="toggleBranch(this,'br2-5a')"><span>👥</span><span>Integración programática</span></button>
-            <div class="br-ans" id="br2-5a">Coordinar con otras áreas o programas de la filial que ya tengan presencia en la comunidad para ampliar la convocatoria.</div>
-            <button class="br-btn" onclick="toggleBranch(this,'br2-5b')"><span>🔗</span><span>Redes secundarias</span></button>
-            <div class="br-ans" id="br2-5b">Identificar, junto al liderazgo, personas con capacidad de convocatoria en sectores específicos que el líder no cubre normalmente.</div>
-            <button class="br-btn" onclick="toggleBranch(this,'br2-5c')"><span>📍</span><span>Momentos y espacios de alta concurrencia</span></button>
-            <div class="br-ans" id="br2-5c">Planificar actividades en horarios y lugares donde la comunidad ya se congrega naturalmente (mercados, salidas de escuela, misas, asambleas).</div>
-            <button class="br-btn" onclick="toggleBranch(this,'br2-5d')"><span>🎯</span><span>Atractivo del proyecto</span></button>
-            <div class="br-ans" id="br2-5d">Asegurar que la primera actividad ofrezca un valor tangible e inmediato para los participantes. Esto motiva la asistencia y la recomendación.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-5a')"><span>✅</span><span>Tengo el aval comunitario previo</span></button>
+            <div class="br-ans" id="br2-5a">Puedes notificar a las autoridades con confianza. El aval de la comunidad protege al personal ante cualquier cuestionamiento civil o militar.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-5b')"><span>⚠️</span><span>La filial ya tiene relación con la alcaldía</span></button>
+            <div class="br-ans warn" id="br2-5b">Las relaciones institucionales previas facilitan el trabajo, pero no reemplazan el aval de la comunidad. Gestiona los permisos, pero no los presentes como la puerta de entrada a la comunidad.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br2-5c')"><span>❌</span><span>No tengo aún el aval comunitario</span></button>
+            <div class="br-ans danger" id="br2-5c">NO notifiques a autoridades antes de tener el aval de la comunidad. Hacerlo puede comprometer la aceptación de la CRV y asociarla con el poder político o militar.</div>
           </div>
         </div>
       </div>
       <div class="blk blk-critico">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
-        <div class="blk-body hide">Si la participación cae por debajo del umbral mínimo acordado en dos o más actividades consecutivas, revisar la estrategia de convocatoria antes de continuar.</div>
+        <div class="blk-body hide">Notificar a las autoridades sin el aval previo de la comunidad puede comprometer la aceptación de la CRV y generar la percepción de que opera como brazo del Estado. El orden correcto es: comunidad primero, autoridades después.</div>
       </div>
     </div>
   </div>
@@ -909,7 +926,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
             <button class="br-btn" onclick="toggleBranch(this,'br3-1a')"><span>✅</span><span>Todos los grupos están representados</span></button>
             <div class="br-ans" id="br3-1a">Buena representatividad. Continúa con las actividades planificadas.</div>
             <button class="br-btn" onclick="toggleBranch(this,'br3-1b')"><span>⚠️</span><span>Falta algún grupo (mujeres, jóvenes, migrantes…)</span></button>
-            <div class="br-ans warn" id="br3-1b">Activa las estrategias de convocatoria alternativas de Fase 2 (Paso 5). Los informantes clave no siempre son líderes formales; busca personas con acceso a los grupos ausentes.</div>
+            <div class="br-ans warn" id="br3-1b">Activa las estrategias de convocatoria alternativas de Fase 2 (Paso 4). Los informantes clave no siempre son líderes formales; busca personas con acceso a los grupos ausentes.</div>
           </div>
         </div>
       </div>
@@ -972,7 +989,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
             <li>No tomar partido ni alinearse con ningún actor de poder que tenga disputas internas.</li>
             <li>Evitar que el proyecto sea asociado con una facción política, religiosa o económica.</li>
             <li>Si un actor informal condiciona el acceso, documentar internamente y escalar a la sede.</li>
-            <li>En caso de materializarse algún acuerdo con autoridades no estatales, el mismo debe ser abierto y comunicado a las autoridades del Estado. Igualmente, los acuerdos con instituciones o funcionarios del Estado deben ser comunicados a las autoridades no oficiales cuando estas tengan control total o parcial sobre el territorio. En ambos casos tanto el Estado como el grupo irregular deben saber que la CRV mantiene contacto con ambas partes y que esto es parte de su mandato como organización imparcial, neutral e independiente.</li>
+            <li>En caso de materializarse algún acuerdo con autoridades no estatales, el mismo debe ser abierto y comunicado a las autoridades del Estado. Igualmente, los acuerdos con instituciones o funcionarios del Estado deben ser comunicados a las autoridades no oficiales cuando estas tengan control total o parcial sobre la zona. En ambos casos tanto el Estado como el grupo irregular deben saber que la CRV mantiene contacto con ambas partes y que esto es parte de su mandato como organización imparcial, neutral e independiente.</li>
           </ul>
         </div>
       </div>
@@ -1210,7 +1227,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
         <div class="blk-body">
           <p>Antes del informe final, triangular la información con distintas fuentes. El informe debe incluir:</p>
           <ul class="lst" style="margin-top:8px">
-            <li>Conclusiones que reflejan las <strong>prioridades de la comunidad</strong>, no los deseos de la CRV o el donante.</li>
+            <li>Conclusiones que reflejan las <strong>prioridades de la comunidad</strong>, no los deseos de la CRV o de terceros con intereses en la intervención.</li>
             <li>Viabilidad logística: horarios seguros y rutas de acceso basadas en la vulnerabilidad mapeada.</li>
             <li>Clasificación de problemas según el mandato y capacidad de acción de la CRV.</li>
             <li>Especificación de qué voluntarios o especialistas se requieren.</li>
@@ -1227,7 +1244,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="card" id="c4-2">
     <div class="card-hdr" onclick="toggleCard('c4-2')">
       <div class="card-num">2</div>
-      <div class="card-title">Gestión de la tensión entre mandato del donante y realidad comunitaria</div>
+      <div class="card-title">Gestión de la tensión entre los objetivos de la intervención y la realidad comunitaria</div>
       <div class="card-check" onclick="toggleCheck(event,'c4-2')"></div>
       <div class="card-arr">▼</div>
     </div>
@@ -1235,9 +1252,9 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
       <div class="blk blk-accion open">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>📋 Marco para documentar la discrepancia</span><span>▾</span></div>
         <div class="blk-body">
-          <p>Cuando el proyecto exige "X" pero la comunidad requiere "Y":</p>
+          <p>Cuando los planes iniciales exigen "X" pero la comunidad requiere "Y":</p>
           <ul class="lst" style="margin-top:8px">
-            <li>Descripción de "X" según el marco lógico del proyecto.</li>
+            <li>Descripción de "X" según el plan original.</li>
             <li>Descripción de "Y" según los hallazgos, con evidencia de al menos 3 fuentes.</li>
             <li>Impacto de implementar "X" sin atender "Y": qué riesgos genera para la comunidad.</li>
             <li>Propuesta de ajuste: cómo modificar la actividad para atender ambas necesidades.</li>
@@ -1245,28 +1262,28 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
         </div>
       </div>
       <div class="blk blk-rama">
-        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿El donante es flexible?</span><span>▾</span></div>
+        <div class="blk-hdr" onclick="toggleBlk(this)"><span>🔀 ¿La instancia que coordina la intervención acepta ajustes?</span><span>▾</span></div>
         <div class="blk-body hide">
           <div class="branches">
-            <button class="br-btn" onclick="toggleBranch(this,'br4-2a')"><span>✅</span><span>Donante abierto a ajustes</span></button>
+            <button class="br-btn" onclick="toggleBranch(this,'br4-2a')"><span>✅</span><span>Abierta a ajustes</span></button>
             <div class="br-ans" id="br4-2a">
               <ul class="lst pr" style="margin-top:0">
                 <li>Presentar hallazgos como evidencia técnica, no como desviación del plan.</li>
                 <li>Proponer modificaciones acotadas: cambiar la forma, no los objetivos generales.</li>
               </ul>
             </div>
-            <button class="br-btn" onclick="toggleBranch(this,'br4-2b')"><span>⚠️</span><span>Donante inflexible</span></button>
-            <div class="br-ans warn" id="br4-2b">Registrar en el informe interno la discrepancia y las acciones tomadas para mitigar su impacto. Documentar los recursos alternativos gestionados fuera del presupuesto del proyecto.</div>
+            <button class="br-btn" onclick="toggleBranch(this,'br4-2b')"><span>⚠️</span><span>Inflexible, no acepta ajustes</span></button>
+            <div class="br-ans warn" id="br4-2b">Registrar en el informe interno la discrepancia y las acciones tomadas para mitigar su impacto. Documentar los recursos alternativos gestionados fuera del alcance o presupuesto original de la intervención.</div>
           </div>
         </div>
       </div>
       <div class="blk blk-critico">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>⚠ Punto Crítico</span><span>▾</span></div>
-        <div class="blk-body hide">En los proyectos de GRD es difícil anticipar con precisión lo que se encontrará en terreno. La discrepancia donante-realidad es una constante que solo resuelve mediante el manejo de información valiosa que debe gestionarse técnicamente.</div>
+        <div class="blk-body hide">Las implementaciones de GRD son sui géneris: es difícil anticipar con precisión lo que se encontrará en terreno. La discrepancia entre el plan y la realidad es una constante que solo se resuelve mediante el manejo de información valiosa que debe gestionarse técnicamente.</div>
       </div>
       <div class="blk blk-estrategia">
         <div class="blk-hdr" onclick="toggleBlk(this)"><span>🛠 Estrategia de campo</span><span>▾</span></div>
-        <div class="blk-body hide">Mantener un registro interno —separado del reporte al donante— donde se documente qué decisiones de campo se tomaron, por qué, y con qué resultado. Este registro protege a la filial y sirve de aprendizaje institucional.</div>
+        <div class="blk-body hide">Mantener un registro interno —separado del reporte oficial— donde se documente qué decisiones de campo se tomaron, por qué, y con qué resultado. Este registro protege a la filial y sirve de aprendizaje institucional.</div>
       </div>
     </div>
   </div>
@@ -1397,11 +1414,11 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
   <div class="faq-card" id="faq11">
     <div class="faq-hdr" onclick="toggleFaq('faq11')">
       <div class="faq-num">?</div>
-      <div class="faq-q">¿Cómo demuestro al donante que los cambios del terreno son legítimos?</div>
+      <div class="faq-q">¿Cómo demuestro que los cambios surgidos en terreno son legítimos?</div>
       <div class="faq-arr">▼</div>
     </div>
     <div class="faq-body">
-      La clave es documentar desde el principio. Usa el marco de discrepancia: describe lo que el proyecto exige ("X"), lo que encontraste en terreno ("Y") con evidencia de al menos tres fuentes (informantes distintos, observación directa, datos secundarios), el impacto que tendría ignorar "Y", y una propuesta concreta de ajuste que no comprometa los objetivos del proyecto. Presenta esto como un hallazgo técnico, no como una desviación. Los proyectos de gestión de riesgos y desarrollo comunitario tienen inherentemente incertidumbre: los donantes experimentados lo saben. Si el donante es inflexible, documenta la discrepancia en el expediente interno.
+      La clave es documentar desde el principio. Usa el marco de discrepancia: describe lo que el plan original exige ("X"), lo que encontraste en terreno ("Y") con evidencia de al menos tres fuentes (informantes distintos, observación directa, datos secundarios), el impacto que tendría ignorar "Y", y una propuesta concreta de ajuste que no comprometa los objetivos generales de la intervención. Presenta esto ante la instancia que coordina la intervención como un hallazgo técnico, no como una desviación. Las implementaciones de gestión de riesgos y desarrollo comunitario tienen inherentemente incertidumbre: los coordinadores experimentados lo saben. Si la instancia coordinadora no acepta ajustes, documenta la discrepancia en el expediente interno.
     </div>
   </div>
 
@@ -1417,7 +1434,7 @@ a.link-btn{display:inline-flex;align-items:center;gap:8px;background:var(--corp)
         <li>No tomar partido ni alinearse con ningún actor —formal o informal— que tenga disputas internas en la comunidad.</li>
         <li>Evitar que el proyecto sea asociado con una facción política, religiosa o económica específica.</li>
         <li>Si un actor informal condiciona el acceso o la continuidad del proyecto, documentar el hecho internamente y escalar a la coordinación de la filial.</li>
-        <li>En caso de materializarse algún acuerdo con autoridades no estatales, el mismo debe ser abierto y comunicado a las autoridades del Estado. Igualmente, los acuerdos con instituciones o funcionarios del Estado deben ser comunicados a las autoridades no oficiales cuando estas tengan control total o parcial sobre el territorio. En ambos casos tanto el Estado como el grupo irregular deben saber que la CRV mantiene contacto con ambas partes y que esto es parte de su mandato como organización imparcial, neutral e independiente.</li>
+        <li>En caso de materializarse algún acuerdo con autoridades no estatales, el mismo debe ser abierto y comunicado a las autoridades del Estado. Igualmente, los acuerdos con instituciones o funcionarios del Estado deben ser comunicados a las autoridades no oficiales cuando estas tengan control total o parcial sobre la zona. En ambos casos tanto el Estado como el grupo irregular deben saber que la CRV mantiene contacto con ambas partes y que esto es parte de su mandato como organización imparcial, neutral e independiente.</li>
         <li>Si la presencia de estos grupos representa un riesgo para el equipo o la comunidad, activar el protocolo de seguridad de la organización.</li>
       </ul>
     </div>
@@ -1568,17 +1585,17 @@ const TREE = {
     {l:'❌ NO, el liderazgo es evasivo o rechaza',c:'no',n:'stop-aval'}
   ]},
   'stop-aval': {type:'stop',text:'No continúes sin el aval comunitario. Replantea la estrategia de entrada o evalúa si la comunidad es viable para este momento. Consulta con la sede.'},
-  's6': {type:'step',num:6,text:'Gestión de permisos con autoridades (solo si necesario, con aval previo)',phase:2,card:'c2-2',next:'s7'},
-  's7': {type:'step',num:7,text:'Definición del propósito y reconocimiento del saber local',phase:2,card:'c2-3',next:'s8'},
-  's8': {type:'step',num:8,text:'Aplicación del Cuestionario KoboToolbox',phase:2,card:'c2-4',mandatory:true,next:'s9'},
-  's9': {type:'step',num:9,text:'Planificación de la convocatoria comunitaria',phase:2,card:'c2-5',next:'ph3'},
+  's6': {type:'step',num:6,text:'Aplicación del Cuestionario de Evaluación Rápida (KoboToolbox)',phase:2,card:'c2-2',mandatory:true,next:'s7'},
+  's7': {type:'step',num:7,text:'Interpretación del diagnóstico y Formulario de inicio de exploración',phase:2,card:'c2-3',next:'s8'},
+  's8': {type:'step',num:8,text:'Planificación de la convocatoria comunitaria',phase:2,card:'c2-4',next:'s9'},
+  's9': {type:'step',num:9,text:'Gestión de permisos con autoridades (solo si necesario, con aval previo)',phase:2,card:'c2-5',next:'ph3'},
   'ph3': {type:'phase',label:'FASE 3: INMERSIÓN Y PROFUNDIZACIÓN',next:'s10'},
   's10': {type:'step',num:10,text:'Muestreo inclusivo y verificación de representatividad',phase:3,card:'c3-1',next:'d-repr'},
   'd-repr': {type:'decision',q:'¿Todos los grupos de la comunidad están representados en las actividades?',opts:[
     {l:'⚠ NO, hay grupos ausentes',c:'warn',n:'adj-repr'},
     {l:'✅ SÍ, hay representatividad adecuada',c:'yes',n:'s11'}
   ]},
-  'adj-repr': {type:'adjust',text:'Activa las estrategias de convocatoria alternativas: integración programática, redes secundarias, momentos de alta concurrencia (ver F2, Paso 5).',next:'s11'},
+  'adj-repr': {type:'adjust',text:'Activa las estrategias de convocatoria alternativas: integración programática, redes secundarias, momentos de alta concurrencia (ver F2, Paso 4).',next:'s11'},
   's11': {type:'step',num:11,text:'Mapeo de gobernanza, relaciones económicas y poder real',phase:3,card:'c3-2',next:'s12'},
   's12': {type:'step',num:12,text:'Identificación y gestión de actores de poder informal',phase:3,card:'c3-3',next:'d-inf'},
   'd-inf': {type:'decision',q:'¿Se detectan actores de poder informal en la comunidad?',opts:[
@@ -1608,12 +1625,12 @@ const TREE = {
   ]},
   'ph4': {type:'phase',label:'FASE 4: CONSOLIDACIÓN',next:'s18'},
   's18': {type:'step',num:18,text:'Síntesis y triangulación de hallazgos',phase:4,card:'c4-1',next:'d-don'},
-  'd-don': {type:'decision',q:'¿Hay discrepancia entre lo que exige el donante y la realidad del terreno?',opts:[
+  'd-don': {type:'decision',q:'¿Hay discrepancia entre lo que exige el plan original y la realidad del terreno?',opts:[
     {l:'⚠ SÍ, hay discrepancia',c:'warn',n:'adj-don'},
     {l:'✅ NO, hay coherencia',c:'yes',n:'s19'}
   ]},
-  'adj-don': {type:'adjust',text:'Documenta con evidencia de 3 fuentes. Propón un ajuste técnico que no comprometa los objetivos. Negocia con el donante presentando esto como evidencia técnica.',next:'s19'},
-  's19': {type:'step',num:19,text:'Gestión de la tensión donante / realidad comunitaria',phase:4,card:'c4-2',next:'end'},
+  'adj-don': {type:'adjust',text:'Documenta con evidencia de 3 fuentes. Propón un ajuste técnico que no comprometa los objetivos generales. Presenta esto ante la instancia que coordina la intervención como evidencia técnica.',next:'s19'},
+  's19': {type:'step',num:19,text:'Gestión de la tensión entre el plan y la realidad comunitaria',phase:4,card:'c4-2',next:'end'},
   'end': {type:'end',text:'✅ Acceso y legitimación consolidados'}
 };
 
