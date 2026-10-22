@@ -7,7 +7,7 @@
    la descarga de la versión nueva.
    ============================================================ */
 
-const CACHE_VER  = 'crv-ruta-v15';
+const CACHE_VER  = 'crv-ruta-v16';
 const CACHE_URLS = [
   './',
   './hoja_de_ruta_bolsillo.html',
